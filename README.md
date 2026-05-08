@@ -35,34 +35,24 @@
 ### 1. Clone the repository
 ```bash
 git clone https://github.com/tfavareto/MacroDash.git
-cd MacroDash/dashboard
+cd MacroDash
 ```
 
-### 2. Configure your FRED API key
-1. Create a free account at [fred.stlouisfed.org](https://fred.stlouisfed.org/) and generate an API key
-2. Copy the template:
-   ```bash
-   cp js/secrets.example.js js/secrets.local.js
-   ```
-3. Open `js/secrets.local.js` and paste your key:
-   ```js
-   window.SECRETS = {
-     FRED_API_KEY: 'your_key_here',
-   };
-   ```
+### 2. Get a free FRED API key
+Create an account at [fred.stlouisfed.org](https://fred.stlouisfed.org/) and generate an API key (it's instant and free).
 
-### 3. Run a local static server
-Any HTTP server works. Some options:
-
+### 3. Install dependencies and run
 ```bash
-# Option A — Node.js
-npx serve -l 5173
+npm install
 
-# Option B — Python
-python -m http.server 5173
+# Linux / Mac
+export FRED_API_KEY=your_key_here && npm start
 
-# Option C — VSCode
-# Install "Live Server" and click "Go Live" in the bottom bar
+# Windows (cmd)
+set FRED_API_KEY=your_key_here && npm start
+
+# Windows (PowerShell)
+$env:FRED_API_KEY="your_key_here"; npm start
 ```
 
 ### 4. Open in your browser
@@ -70,25 +60,48 @@ python -m http.server 5173
 http://localhost:5173
 ```
 
+The Node server (`server.js`) serves the dashboard and proxies FRED API calls so the API key stays server-side.
+
+---
+
+## ☁️ Deploy to Railway
+
+MacroDash is built to run on [Railway](https://railway.app/) (or any Node-friendly host) with zero extra configuration.
+
+### One-click deploy
+1. Push the repository to GitHub (or use this fork)
+2. Go to [railway.app/new](https://railway.app/new) → **Deploy from GitHub repo** → select **MacroDash**
+3. After Railway provisions, go to the service → **Variables** → add:
+   - `FRED_API_KEY` = your FRED key
+4. Railway auto-detects `package.json` and runs `npm start`
+5. Click **Settings → Networking → Generate Domain** to get a public URL like `macrodash.up.railway.app`
+
+That's it — your dashboard is live.
+
+### Deploy to other platforms
+Any Node 18+ host works (Render, Fly.io, Heroku, Vercel with Node functions, AWS App Runner, etc.). Just set the `FRED_API_KEY` environment variable and run `npm start`.
+
 ---
 
 ## 🗂️ Project Structure
 
 ```
-dashboard/
-├── index.html              # Main shell
-├── css/
-│   └── style.css          # Black + orange theme
-├── js/
-│   ├── config.js          # Series, chart, and heatmap definitions
-│   ├── api.js             # FRED + BACEN fetcher with caching
-│   ├── charts.js          # Chart.js renderer
-│   ├── heatmap.js         # Heatmap renderer (11-level RdYlGn scale)
-│   ├── app.js             # Main logic, navigation, KPIs
-│   ├── tradingview.js     # TradingView widgets for B3
-│   ├── ism-manual.js      # ISM PMI manual entry
-│   ├── secrets.example.js # Template (no key)
-│   └── secrets.local.js   # Your FRED key (DO NOT COMMIT!)
+MacroDash/
+├── server.js               # Express backend: serves frontend + FRED proxy
+├── package.json            # Node dependencies and start script
+├── dashboard/              # Static frontend
+│   ├── index.html          # Main shell
+│   ├── css/style.css       # Black + orange theme
+│   └── js/
+│       ├── config.js       # Series, chart, and heatmap definitions
+│       ├── api.js          # FRED + BACEN fetcher with caching
+│       ├── charts.js       # Chart.js renderer
+│       ├── heatmap.js      # Heatmap renderer (11-level RdYlGn scale)
+│       ├── app.js          # Main logic, navigation, KPIs
+│       ├── tradingview.js  # TradingView widgets for B3
+│       └── ism-manual.js   # ISM PMI manual entry
+├── README.md
+├── LICENSE
 └── .gitignore
 ```
 
@@ -98,10 +111,10 @@ dashboard/
 
 ### Data Flow
 ```
-Browser ─┬─→ FRED API (USA, via CORS proxy)
+Browser ─┬─→ /api/fred/* (Node backend → FRED, key kept server-side)
          └─→ BACEN SGS API (Brazil, native CORS)
                    ↓
-             api.js (1h cache)
+             api.js (1h in-memory cache)
                    ↓
           computeYoY/MoM/3MAnnualized/etc
                    ↓
@@ -197,9 +210,11 @@ Each indicator has `dir: +1` (higher is better) or `dir: -1` (lower is better), 
 
 ## 🛡️ Security
 
-- ✅ `js/secrets.local.js` is in `.gitignore` — **your FRED API key never leaves your computer**
-- ✅ `secrets.example.js` is a safe template (no real keys) that can be committed
-- ⚠️ Never paste your API key into any other file — only `secrets.local.js`
+- ✅ The FRED API key is read from the **`FRED_API_KEY` environment variable** on the server, never sent to the browser
+- ✅ The frontend calls `/api/fred/*` (same-origin), so the key is never exposed in DevTools or network logs
+- ✅ Visitors can use the public site without needing their own FRED key — the key belongs to the deployer
+- ⚠️ Be aware that FRED's free tier limits 120 requests/min per key. Heavy public traffic may hit this limit
+- 💡 For local development, set `FRED_API_KEY` in your shell before running `npm start`
 
 ---
 

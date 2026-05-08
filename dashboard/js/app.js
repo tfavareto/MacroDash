@@ -160,10 +160,8 @@ function updateMetaBar() {
 // ── Data loading ───────────────────────────────────────────────────
 async function loadData(force = false) {
   if (state.loading) return;
-  if (state.country === 'usa' && !state.fredApiKey) {
-    showError('FRED API key não configurada. Crie js/secrets.local.js com window.SECRETS.FRED_API_KEY = "...".');
-    return;
-  }
+  // FRED key is now handled server-side via /api/fred/* proxy.
+  // No client-side key check needed.
   state.loading = true;
   btnRefresh.disabled = true;
   btnRefresh.textContent = 'Carregando…';

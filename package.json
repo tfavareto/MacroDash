@@ -1,0 +1,32 @@
+{
+  "name": "macrodash",
+  "version": "1.0.0",
+  "description": "Macroeconomic research terminal for Brazil and USA — Bloomberg-style dashboard with 300+ indicators",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "macroeconomics",
+    "dashboard",
+    "fred",
+    "bacen",
+    "brazil",
+    "usa",
+    "chartjs",
+    "vanilla-js"
+  ],
+  "author": "Thiago Favareto",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tfavareto/MacroDash.git"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

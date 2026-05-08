@@ -39,11 +39,10 @@ function rangeStart(range) {
 }
 
 // ── FRED ──────────────────────────────────────────────────────────
-// FRED API does not send Access-Control-Allow-Origin headers, so browser
-// requests are blocked by CORS. We route through a free public proxy.
-const CORS_PROXY = 'https://corsproxy.io/?';
-
-async function fetchFRED(seriesId, range, apiKey) {
+// In production (Railway), we hit our own backend proxy at /api/fred/*
+// which keeps the API key server-side. In local dev, we still need a
+// running Node server (npm start) — the same proxy works locally.
+async function fetchFRED(seriesId, range, apiKey /* unused — kept for back-compat */) {
   const ck = cacheKey('fred_' + seriesId, range);
   const cached = getCached(ck);
   if (cached) return cached;
@@ -53,14 +52,11 @@ async function fetchFRED(seriesId, range, apiKey) {
   extraStart.setFullYear(extraStart.getFullYear() - 2);
   const obs_start = extraStart.toISOString().slice(0, 10);
 
-  const fredUrl = `https://api.stlouisfed.org/fred/series/observations`
+  // Backend proxy adds api_key + file_type; we just pass series params
+  const url = `/api/fred/series/observations`
     + `?series_id=${seriesId}`
     + `&observation_start=${obs_start}`
-    + `&api_key=${apiKey}`
-    + `&file_type=json`
     + `&sort_order=asc`;
-
-  const url = CORS_PROXY + encodeURIComponent(fredUrl);
 
   const res = await fetch(url);
   if (!res.ok) throw new Error(`FRED ${seriesId}: HTTP ${res.status}`);
