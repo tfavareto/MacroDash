@@ -66,20 +66,33 @@ The Node server (`server.js`) serves the dashboard and proxies FRED API calls so
 
 ## ☁️ Deploy to Railway
 
-MacroDash is built to run on [Railway](https://railway.app/) (or any Node-friendly host) with zero extra configuration.
+MacroDash is built to run on [Railway](https://railway.app/) (or any Node + Postgres host).
 
-### One-click deploy
-1. Push the repository to GitHub (or use this fork)
-2. Go to [railway.app/new](https://railway.app/new) → **Deploy from GitHub repo** → select **MacroDash**
-3. After Railway provisions, go to the service → **Variables** → add:
-   - `FRED_API_KEY` = your FRED key
-4. Railway auto-detects `package.json` and runs `npm start`
-5. Click **Settings → Networking → Generate Domain** to get a public URL like `macrodash.up.railway.app`
+### 1. Create the project
+1. Go to [railway.app/new](https://railway.app/new) → **Deploy from GitHub repo** → select **MacroDash**
+2. Railway auto-detects `package.json` and runs `npm start`
 
-That's it — your dashboard is live.
+### 2. Add a Postgres database
+1. In your project: **+ New** → **Database** → **PostgreSQL**
+2. Railway creates the database and **automatically injects** the `DATABASE_URL` env var into the web service
+3. The schema is created on first boot automatically
 
-### Deploy to other platforms
-Any Node 18+ host works (Render, Fly.io, Heroku, Vercel with Node functions, AWS App Runner, etc.). Just set the `FRED_API_KEY` environment variable and run `npm start`.
+### 3. Add the FRED key
+1. Open the web service → **Variables** → **+ New Variable**
+2. Name: `FRED_API_KEY` · Value: your FRED API key (free at [fred.stlouisfed.org](https://fred.stlouisfed.org/))
+
+### 4. Generate public URL
+**Settings → Networking → Generate Domain** — you get `macrodash.up.railway.app`.
+
+### Required environment variables
+| Variable | Purpose | Source |
+|---|---|---|
+| `FRED_API_KEY` | Server-side FRED authentication | You add manually |
+| `DATABASE_URL` | Postgres connection string | Auto-injected by Railway PG plugin |
+| `PORT` | HTTP port | Auto-injected by Railway |
+
+### Per-user data
+ISM PMI data is stored in PostgreSQL **scoped per anonymous user** — each visitor's browser generates a UUID stored in localStorage that identifies them. No login required. Each user's data is private to them.
 
 ---
 

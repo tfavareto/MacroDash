@@ -1,43 +1,64 @@
 /* ─────────────────────────────────────────────────────────────────
    MacroDash — Production Server (Express)
-   Serves the static dashboard and proxies FRED API calls so the API
-   key stays server-side (in env var FRED_API_KEY).
 
-   Includes a server-side in-memory cache (30-min TTL) so multiple
-   visitors share the same upstream FRED responses, drastically
-   reducing FRED rate-limit pressure.
+   - Serves static dashboard
+   - Proxies FRED API (key kept server-side via FRED_API_KEY env var)
+   - 30-min in-memory cache for FRED responses
+   - PostgreSQL persistence for ISM PMI data, scoped per-user via
+     anonymous UUID stored in browser localStorage. No login required.
    ───────────────────────────────────────────────────────────────── */
 
 const express = require('express');
 const path    = require('path');
-const fs      = require('fs');
 const https   = require('https');
+const { Pool } = require('pg');
 
 const app  = express();
 const PORT = process.env.PORT || 5173;
-const FRED_API_KEY = process.env.FRED_API_KEY || '';
-const ADMIN_TOKEN  = process.env.ADMIN_TOKEN  || '';
+const FRED_API_KEY  = process.env.FRED_API_KEY  || '';
+const DATABASE_URL  = process.env.DATABASE_URL  || '';
 
-// JSON parser for admin POST
 app.use(express.json({ limit: '512kb' }));
 
 if (!FRED_API_KEY) {
   console.warn('⚠️  FRED_API_KEY env var not set — FRED endpoints will fail.');
-  console.warn('   On Railway: Settings → Variables → Add FRED_API_KEY');
 }
-if (!ADMIN_TOKEN) {
-  console.warn('⚠️  ADMIN_TOKEN env var not set — ISM admin write will be disabled.');
-  console.warn('   On Railway: Settings → Variables → Add ADMIN_TOKEN (any random string)');
+
+// ── PostgreSQL connection ─────────────────────────────────────────
+let pool = null;
+if (DATABASE_URL) {
+  pool = new Pool({
+    connectionString: DATABASE_URL,
+    // Railway PG works fine without SSL flag, but enable when explicitly required
+    ssl: DATABASE_URL.includes('sslmode=require') ? { rejectUnauthorized: false } : false,
+  });
+  pool.on('error', (err) => console.error('Postgres pool error:', err.message));
+} else {
+  console.warn('⚠️  DATABASE_URL not set — ISM persistence disabled.');
+  console.warn('   On Railway: add a Postgres plugin → DATABASE_URL is auto-injected.');
+}
+
+// Initialize schema on startup
+async function initSchema() {
+  if (!pool) return;
+  await pool.query(`
+    CREATE TABLE IF NOT EXISTS ism_data (
+      user_id    TEXT NOT NULL,
+      date       TEXT NOT NULL,
+      values     JSONB NOT NULL DEFAULT '{}'::jsonb,
+      updated_at TIMESTAMP NOT NULL DEFAULT NOW(),
+      PRIMARY KEY (user_id, date)
+    );
+  `);
+  await pool.query(`CREATE INDEX IF NOT EXISTS idx_ism_user ON ism_data(user_id);`);
+  console.log('✓ Postgres schema ready');
 }
 
 // ── Server-side FRED cache ────────────────────────────────────────
-// Keyed by the upstream FRED URL (without api_key for privacy).
-// Each entry: { ts: when fetched, data: raw JSON string, status: HTTP code }
-const FRED_CACHE_TTL = 30 * 60 * 1000;       // 30 minutes
+const FRED_CACHE_TTL = 30 * 60 * 1000;
 const fredCache = new Map();
 let cacheHits = 0, cacheMisses = 0, cacheEvictions = 0;
 
-// Periodic cleanup so cache doesn't grow forever
 setInterval(() => {
   const now = Date.now();
   let removed = 0;
@@ -45,7 +66,7 @@ setInterval(() => {
     if (now - v.ts > FRED_CACHE_TTL) { fredCache.delete(k); removed++; }
   }
   if (removed) cacheEvictions += removed;
-}, 5 * 60 * 1000);  // every 5 minutes
+}, 5 * 60 * 1000);
 
 // ── Static frontend ───────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, 'dashboard'), {
@@ -64,10 +85,8 @@ app.get('/api/fred/*', (req, res) => {
   params.set('file_type', 'json');
 
   const fredUrl = `https://api.stlouisfed.org/fred/${fredPath}?${params.toString()}`;
-  // Cache key removes api_key for safety/privacy
   const cacheKey = `${fredPath}?${new URLSearchParams(req.query).toString()}`;
 
-  // Cache hit — return immediately
   const cached = fredCache.get(cacheKey);
   if (cached && (Date.now() - cached.ts) < FRED_CACHE_TTL) {
     cacheHits++;
@@ -78,19 +97,13 @@ app.get('/api/fred/*', (req, res) => {
     return res.send(cached.data);
   }
 
-  // Cache miss — fetch from FRED
   cacheMisses++;
   https.get(fredUrl, (apiRes) => {
     let body = '';
     apiRes.on('data', chunk => { body += chunk; });
     apiRes.on('end', () => {
-      // Only cache successful 200 responses with JSON content
       if (apiRes.statusCode === 200 && body.trim().startsWith('{')) {
-        fredCache.set(cacheKey, {
-          ts: Date.now(),
-          data: body,
-          status: apiRes.statusCode,
-        });
+        fredCache.set(cacheKey, { ts: Date.now(), data: body, status: apiRes.statusCode });
       }
       res.status(apiRes.statusCode);
       res.set('Content-Type', 'application/json');
@@ -103,80 +116,126 @@ app.get('/api/fred/*', (req, res) => {
   });
 });
 
-// ── ISM PMI persistence ───────────────────────────────────────────
-// Stored as a simple JSON file in dashboard/data/ism.json (committed
-// to git for free persistence across Railway deploys).
-const ISM_FILE = path.join(__dirname, 'dashboard', 'data', 'ism.json');
+// ── ISM PMI Persistence (PostgreSQL, per-user via x-user-id) ──────
+// Each request must include a user_id (header X-User-Id or query param)
+// to identify the anonymous user. The frontend generates a UUID on
+// first visit and stores it in localStorage.
 
-function readISM() {
-  try {
-    if (!fs.existsSync(ISM_FILE)) return {};
-    return JSON.parse(fs.readFileSync(ISM_FILE, 'utf8') || '{}');
-  } catch (e) {
-    console.error('Error reading ism.json:', e.message);
-    return {};
+function requireUser(req, res, next) {
+  const userId = (req.get('X-User-Id') || req.query.user_id || '').toString().trim();
+  if (!userId || userId.length < 8 || userId.length > 64) {
+    return res.status(400).json({ error: 'Missing or invalid user_id (provide via X-User-Id header or user_id query param)' });
   }
-}
-function writeISM(data) {
-  // Ensure dir exists (on first run after git clone)
-  fs.mkdirSync(path.dirname(ISM_FILE), { recursive: true });
-  fs.writeFileSync(ISM_FILE, JSON.stringify(data, null, 2));
-}
-
-// Public read — anyone visiting the site sees the same ISM data
-app.get('/api/ism', (_req, res) => {
-  res.set('Access-Control-Allow-Origin', '*');
-  res.json(readISM());
-});
-
-// Admin write — requires Bearer token matching ADMIN_TOKEN
-function requireAdmin(req, res, next) {
-  const auth = req.get('Authorization') || '';
-  const token = auth.replace(/^Bearer\s+/i, '').trim();
-  if (!ADMIN_TOKEN || token !== ADMIN_TOKEN) {
-    return res.status(401).json({ error: 'Unauthorized — invalid or missing admin token' });
+  if (!pool) {
+    return res.status(503).json({ error: 'Database not configured (DATABASE_URL missing)' });
   }
+  req.userId = userId;
   next();
 }
 
-// Add or update one month's worth of ISM data
-// Body: { date: 'YYYY-MM-DD', values: { NAPM: 49.0, NAPMNOI: 48.0, ... } }
-app.post('/api/ism', requireAdmin, (req, res) => {
+// GET /api/ism — return all months stored for this user
+app.get('/api/ism', requireUser, async (req, res) => {
+  try {
+    const { rows } = await pool.query(
+      'SELECT date, values FROM ism_data WHERE user_id = $1 ORDER BY date ASC',
+      [req.userId]
+    );
+    const out = {};
+    rows.forEach(r => { out[r.date] = r.values; });
+    res.json(out);
+  } catch (e) {
+    res.status(500).json({ error: 'DB error: ' + e.message });
+  }
+});
+
+// POST /api/ism — upsert one month for this user
+// Body: { date: 'YYYY-MM-01', values: { NAPM: 49.0, ... } }
+app.post('/api/ism', requireUser, async (req, res) => {
   const { date, values } = req.body || {};
-  if (!date || typeof date !== 'string' || !/^\d{4}-\d{2}-01$/.test(date)) {
-    return res.status(400).json({ error: 'Invalid date — expected format YYYY-MM-01' });
+  if (!date || !/^\d{4}-\d{2}-01$/.test(date)) {
+    return res.status(400).json({ error: 'Invalid date — expected YYYY-MM-01' });
   }
-  if (!values || typeof values !== 'object') {
-    return res.status(400).json({ error: 'Missing values object' });
+  if (!values || typeof values !== 'object' || Array.isArray(values)) {
+    return res.status(400).json({ error: 'Invalid values object' });
   }
-  const data = readISM();
-  data[date] = { ...(data[date] || {}), ...values };
-  writeISM(data);
-  res.json({ ok: true, date, data: data[date] });
+  try {
+    // Merge with existing values for that date
+    const existing = await pool.query(
+      'SELECT values FROM ism_data WHERE user_id = $1 AND date = $2',
+      [req.userId, date]
+    );
+    const merged = existing.rows.length
+      ? { ...existing.rows[0].values, ...values }
+      : values;
+
+    await pool.query(
+      `INSERT INTO ism_data (user_id, date, values, updated_at)
+       VALUES ($1, $2, $3, NOW())
+       ON CONFLICT (user_id, date)
+       DO UPDATE SET values = $3, updated_at = NOW()`,
+      [req.userId, date, merged]
+    );
+    res.json({ ok: true, date, values: merged });
+  } catch (e) {
+    res.status(500).json({ error: 'DB error: ' + e.message });
+  }
 });
 
-// Delete a month
-app.delete('/api/ism/:date', requireAdmin, (req, res) => {
-  const date = req.params.date;
-  const data = readISM();
-  if (!data[date]) return res.status(404).json({ error: 'Date not found' });
-  delete data[date];
-  writeISM(data);
-  res.json({ ok: true, deleted: date });
-});
-
-// Bulk replace — admin can paste a full JSON via single POST
-app.put('/api/ism', requireAdmin, (req, res) => {
-  if (!req.body || typeof req.body !== 'object') {
-    return res.status(400).json({ error: 'Body must be a JSON object' });
+// DELETE /api/ism/:date — remove one month for this user
+app.delete('/api/ism/:date', requireUser, async (req, res) => {
+  const { date } = req.params;
+  try {
+    const r = await pool.query(
+      'DELETE FROM ism_data WHERE user_id = $1 AND date = $2',
+      [req.userId, date]
+    );
+    if (!r.rowCount) return res.status(404).json({ error: 'Date not found for this user' });
+    res.json({ ok: true, deleted: date });
+  } catch (e) {
+    res.status(500).json({ error: 'DB error: ' + e.message });
   }
-  writeISM(req.body);
-  res.json({ ok: true, entries: Object.keys(req.body).length });
 });
 
-// ── Health check (Railway uses this) ──────────────────────────────
-app.get('/healthz', (_req, res) => {
-  const ism = readISM();
+// PUT /api/ism — bulk replace all months for this user
+// Body: { "2026-04-01": {...}, "2026-03-01": {...}, ... }
+app.put('/api/ism', requireUser, async (req, res) => {
+  if (!req.body || typeof req.body !== 'object' || Array.isArray(req.body)) {
+    return res.status(400).json({ error: 'Body must be an object keyed by date' });
+  }
+  const client = await pool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query('DELETE FROM ism_data WHERE user_id = $1', [req.userId]);
+    for (const [date, values] of Object.entries(req.body)) {
+      if (!/^\d{4}-\d{2}-01$/.test(date)) continue;
+      if (!values || typeof values !== 'object') continue;
+      await client.query(
+        `INSERT INTO ism_data (user_id, date, values) VALUES ($1, $2, $3)`,
+        [req.userId, date, values]
+      );
+    }
+    await client.query('COMMIT');
+    res.json({ ok: true, entries: Object.keys(req.body).length });
+  } catch (e) {
+    await client.query('ROLLBACK');
+    res.status(500).json({ error: 'DB error: ' + e.message });
+  } finally {
+    client.release();
+  }
+});
+
+// ── Health check ──────────────────────────────────────────────────
+app.get('/healthz', async (_req, res) => {
+  let dbOk = false, totalRows = null;
+  if (pool) {
+    try {
+      const r = await pool.query('SELECT COUNT(*)::int AS c FROM ism_data');
+      dbOk = true;
+      totalRows = r.rows[0].c;
+    } catch (e) {
+      dbOk = false;
+    }
+  }
   res.json({
     status: 'ok',
     fredCache: {
@@ -189,10 +248,9 @@ app.get('/healthz', (_req, res) => {
       evictions: cacheEvictions,
       ttlMinutes: FRED_CACHE_TTL / 60000,
     },
-    ism: {
-      monthsStored: Object.keys(ism).length,
-      latestMonth: Object.keys(ism).sort().reverse()[0] || null,
-      adminTokenConfigured: !!ADMIN_TOKEN,
+    database: {
+      connected: dbOk,
+      totalIsmRows: totalRows,
     }
   });
 });
@@ -202,8 +260,15 @@ app.get('*', (_req, res) => {
   res.sendFile(path.join(__dirname, 'dashboard', 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`🚀 MacroDash running on port ${PORT}`);
-  console.log(`   → http://localhost:${PORT}`);
-  console.log(`   → Server-side cache: ${FRED_CACHE_TTL / 60000} min TTL`);
-});
+// ── Boot ──────────────────────────────────────────────────────────
+(async () => {
+  try { await initSchema(); }
+  catch (e) { console.error('Schema init failed:', e.message); }
+
+  app.listen(PORT, () => {
+    console.log(`🚀 MacroDash running on port ${PORT}`);
+    console.log(`   → http://localhost:${PORT}`);
+    console.log(`   → FRED cache TTL: ${FRED_CACHE_TTL / 60000} min`);
+    console.log(`   → Postgres: ${pool ? 'connected' : 'NOT configured'}`);
+  });
+})();
