@@ -19,12 +19,79 @@ const ISM_FIELDS = [
   { key: 'NMFPRI',   label: 'Services Prices Paid', section: 'Services' },
 ];
 
+// In-memory cache of server data (loaded once on page boot)
+let _ismServerData = null;
+
 function loadISMData() {
+  // Prefer server data if loaded, fallback to localStorage
+  if (_ismServerData !== null) return _ismServerData;
   try { return JSON.parse(localStorage.getItem('ism_data') || '{}'); }
   catch { return {}; }
 }
+
 function saveISMData(data) {
+  // Always save locally as backup
   localStorage.setItem('ism_data', JSON.stringify(data));
+  _ismServerData = data;
+}
+
+// Fetch latest from server on startup
+async function loadISMFromServer() {
+  try {
+    const r = await fetch('/api/ism');
+    if (r.ok) {
+      _ismServerData = await r.json();
+      // Mirror to localStorage for offline visualization
+      localStorage.setItem('ism_data', JSON.stringify(_ismServerData));
+    }
+  } catch (e) { /* offline or no backend — keep localStorage */ }
+}
+
+// Push a single month to the server (requires admin token)
+async function pushISMToServer(date, values, adminToken) {
+  const r = await fetch('/api/ism', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer ' + adminToken,
+    },
+    body: JSON.stringify({ date, values }),
+  });
+  if (!r.ok) {
+    const err = await r.json().catch(() => ({}));
+    throw new Error(err.error || `HTTP ${r.status}`);
+  }
+  return r.json();
+}
+
+// Delete month on server
+async function deleteISMOnServer(date, adminToken) {
+  const r = await fetch('/api/ism/' + encodeURIComponent(date), {
+    method: 'DELETE',
+    headers: { 'Authorization': 'Bearer ' + adminToken },
+  });
+  if (!r.ok) {
+    const err = await r.json().catch(() => ({}));
+    throw new Error(err.error || `HTTP ${r.status}`);
+  }
+  return r.json();
+}
+
+// Get/set admin token in sessionStorage (lasts only for current tab/session)
+function getAdminToken() {
+  return sessionStorage.getItem('ism_admin_token') || '';
+}
+function setAdminToken(token) {
+  if (token) sessionStorage.setItem('ism_admin_token', token);
+  else       sessionStorage.removeItem('ism_admin_token');
+}
+function isAdmin() {
+  return !!getAdminToken();
+}
+
+// Trigger initial server fetch as soon as script loads
+if (typeof fetch !== 'undefined') {
+  loadISMFromServer();
 }
 
 /**
@@ -62,6 +129,8 @@ function renderISMManualPanel(parent) {
 
   const panel = document.createElement('div');
   panel.className = 'ism-panel';
+  const adminMode = isAdmin();
+
   panel.innerHTML = `
     <div class="ism-panel-header">
       <div>
@@ -70,11 +139,18 @@ function renderISMManualPanel(parent) {
           A ISM bloqueia scraping. Copie os valores de
           <a href="https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/" target="_blank" style="color:var(--gold);text-decoration:none">ismworld.org</a>
         </span>
+        ${adminMode
+          ? '<span style="margin-left:10px;padding:2px 8px;background:rgba(34,197,94,0.2);border:1px solid #22c55e;border-radius:3px;font-size:.7rem;font-weight:700;color:#22c55e">🔓 ADMIN</span>'
+          : ''}
       </div>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
         <button class="btn-help-ism" id="btn-help-ism" title="Como usar — passo a passo">?</button>
-        <button class="btn-add-ism btn-import-ism" id="btn-import-ism" title="Importar planilha Excel/CSV">📥 Importar Planilha</button>
-        <button class="btn-add-ism" id="btn-new-ism">+ Adicionar Mês</button>
+        ${adminMode
+          ? `<button class="btn-add-ism btn-import-ism" id="btn-import-ism" title="Importar planilha Excel/CSV">📥 Importar Planilha</button>
+             <button class="btn-add-ism" id="btn-new-ism">+ Adicionar Mês</button>
+             <button class="btn-add-ism" id="btn-export-ism" style="background:transparent;color:var(--gold);border:1px solid var(--gold)" title="Baixar JSON para commitar no git (persistência permanente)">⬇ Exportar JSON</button>
+             <button class="btn-add-ism" id="btn-logout-admin" style="background:transparent;color:var(--muted);border:1px solid var(--border)" title="Sair do modo admin">✕ Logout</button>`
+          : `<button class="btn-add-ism" id="btn-login-admin" style="background:transparent;color:var(--gold);border:1px solid var(--gold)" title="Entrar como admin para editar dados">🔐 Login Admin</button>`}
       </div>
     </div>
     <div class="ism-help"   id="ism-help"   style="display:none"></div>
@@ -95,16 +171,59 @@ function renderISMManualPanel(parent) {
     }
   });
 
-  // Import button toggle
-  panel.querySelector('#btn-import-ism').addEventListener('click', () => {
-    const box = panel.querySelector('#ism-import');
-    if (box.style.display === 'none') {
-      renderISMImport(box);
-      box.style.display = 'block';
-    } else {
-      box.style.display = 'none';
-    }
-  });
+  // Admin login/logout flow
+  if (adminMode) {
+    panel.querySelector('#btn-logout-admin')?.addEventListener('click', () => {
+      setAdminToken('');
+      renderActiveTab();
+    });
+    // Import button toggle (only in admin mode)
+    panel.querySelector('#btn-import-ism')?.addEventListener('click', () => {
+      const box = panel.querySelector('#ism-import');
+      if (box.style.display === 'none') {
+        renderISMImport(box);
+        box.style.display = 'block';
+      } else {
+        box.style.display = 'none';
+      }
+    });
+    // Export JSON button — download current data for git commit
+    panel.querySelector('#btn-export-ism')?.addEventListener('click', () => {
+      const data = loadISMData();
+      const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'ism.json';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      alert('Arquivo ism.json baixado. Para persistência permanente, substitua dashboard/data/ism.json no repo e faça git push.');
+    });
+  } else {
+    panel.querySelector('#btn-login-admin')?.addEventListener('click', () => {
+      const token = prompt('Cole o ADMIN_TOKEN configurado no Railway:');
+      if (token && token.trim()) {
+        // Test the token by attempting a no-op fetch
+        fetch('/api/ism', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + token.trim() },
+          body: JSON.stringify({ date: 'invalid', values: {} }),
+        }).then(r => {
+          if (r.status === 401) {
+            alert('Token inválido. Verifique a variável ADMIN_TOKEN no Railway.');
+            return;
+          }
+          // 400 = token aceito, mas data inválido (esperado). Token OK.
+          setAdminToken(token.trim());
+          renderActiveTab();
+        }).catch(() => {
+          alert('Erro de conexão. Tente novamente.');
+        });
+      }
+    });
+  }
 
   // Render existing data table — original sizing, collapsible wrapper
   const tableWrap = panel.querySelector('.ism-table-wrap');
@@ -186,16 +305,25 @@ function renderISMManualPanel(parent) {
     }
   });
 
-  // Delete buttons
+  // Delete buttons (only active in admin mode)
   panel.querySelectorAll('.btn-del-ism').forEach(btn => {
-    btn.addEventListener('click', () => {
+    btn.addEventListener('click', async () => {
+      if (!isAdmin()) {
+        alert('Você precisa estar logado como admin para excluir dados.');
+        return;
+      }
       if (!confirm(`Excluir dados de ${btn.dataset.date}?`)) return;
-      const all = loadISMData();
-      delete all[btn.dataset.date];
-      saveISMData(all);
-      // Re-inject and re-render
-      injectISMSeries(state.usaData);
-      renderActiveTab();
+      try {
+        await deleteISMOnServer(btn.dataset.date, getAdminToken());
+        // Update local cache too
+        const all = loadISMData();
+        delete all[btn.dataset.date];
+        saveISMData(all);
+        injectISMSeries(state.usaData);
+        renderActiveTab();
+      } catch (e) {
+        alert('Erro ao excluir no servidor: ' + e.message);
+      }
     });
   });
 }
@@ -515,15 +643,45 @@ function renderISMImport(box) {
   });
 
   // ── Confirm import ──
-  confirmBtn.addEventListener('click', () => {
+  confirmBtn.addEventListener('click', async () => {
     if (!parsedData || !parsedData.ok) return;
-    const existing = loadISMData();
-    Object.entries(parsedData.data).forEach(([date, vals]) => {
-      existing[date] = { ...(existing[date] || {}), ...vals };
-    });
-    saveISMData(existing);
-    injectISMSeries(state.usaData);
-    renderActiveTab();
+    if (!isAdmin()) { alert('Você precisa estar logado como admin para importar.'); return; }
+
+    const adminToken = getAdminToken();
+    confirmBtn.disabled = true;
+    confirmBtn.textContent = 'Enviando...';
+
+    try {
+      // Push each month sequentially to the server
+      const dates = Object.keys(parsedData.data);
+      let saved = 0;
+      for (const date of dates) {
+        confirmBtn.textContent = `Salvando ${saved + 1}/${dates.length}...`;
+        await pushISMToServer(date, parsedData.data[date], adminToken);
+        saved++;
+      }
+
+      // Update local cache too
+      const existing = loadISMData();
+      Object.entries(parsedData.data).forEach(([date, vals]) => {
+        existing[date] = { ...(existing[date] || {}), ...vals };
+      });
+      saveISMData(existing);
+
+      injectISMSeries(state.usaData);
+      renderActiveTab();
+    } catch (e) {
+      if (e.message.includes('Unauthorized')) {
+        setAdminToken('');
+        alert('Token inválido. Faça login novamente.');
+        renderActiveTab();
+      } else {
+        alert('Erro ao importar: ' + e.message);
+      }
+    } finally {
+      confirmBtn.disabled = false;
+      confirmBtn.textContent = 'Importar';
+    }
   });
 
   // ── Template download ──
@@ -581,17 +739,42 @@ function renderISMForm(form) {
   `;
 
   form.querySelector('#btn-cancel-ism').addEventListener('click', () => { form.style.display='none'; });
-  form.querySelector('#btn-save-ism').addEventListener('click', () => {
+  form.querySelector('#btn-save-ism').addEventListener('click', async () => {
     const date = form.querySelector('#ism-date').value;
     if (!date) { alert('Informe a data.'); return; }
-    const data = loadISMData();
-    data[date] = data[date] || {};
+    if (!isAdmin()) { alert('Você precisa estar logado como admin para salvar.'); return; }
+
+    // Collect values from form
+    const values = {};
     form.querySelectorAll('input[data-key]').forEach(inp => {
       const v = inp.value.trim();
-      if (v !== '') data[date][inp.dataset.key] = parseFloat(v);
+      if (v !== '') values[inp.dataset.key] = parseFloat(v);
     });
-    saveISMData(data);
-    injectISMSeries(state.usaData);
-    renderActiveTab();
+
+    if (Object.keys(values).length === 0) {
+      alert('Preencha pelo menos um campo.');
+      return;
+    }
+
+    try {
+      // Save on server (persistent for all visitors)
+      await pushISMToServer(date, values, getAdminToken());
+
+      // Update local cache
+      const data = loadISMData();
+      data[date] = { ...(data[date] || {}), ...values };
+      saveISMData(data);
+
+      injectISMSeries(state.usaData);
+      renderActiveTab();
+    } catch (e) {
+      if (e.message.includes('Unauthorized')) {
+        setAdminToken('');
+        alert('Token expirado/inválido. Faça login novamente.');
+        renderActiveTab();
+      } else {
+        alert('Erro ao salvar no servidor: ' + e.message);
+      }
+    }
   });
 }

@@ -10,15 +10,24 @@
 
 const express = require('express');
 const path    = require('path');
+const fs      = require('fs');
 const https   = require('https');
 
 const app  = express();
 const PORT = process.env.PORT || 5173;
 const FRED_API_KEY = process.env.FRED_API_KEY || '';
+const ADMIN_TOKEN  = process.env.ADMIN_TOKEN  || '';
+
+// JSON parser for admin POST
+app.use(express.json({ limit: '512kb' }));
 
 if (!FRED_API_KEY) {
   console.warn('⚠️  FRED_API_KEY env var not set — FRED endpoints will fail.');
   console.warn('   On Railway: Settings → Variables → Add FRED_API_KEY');
+}
+if (!ADMIN_TOKEN) {
+  console.warn('⚠️  ADMIN_TOKEN env var not set — ISM admin write will be disabled.');
+  console.warn('   On Railway: Settings → Variables → Add ADMIN_TOKEN (any random string)');
 }
 
 // ── Server-side FRED cache ────────────────────────────────────────
@@ -94,20 +103,99 @@ app.get('/api/fred/*', (req, res) => {
   });
 });
 
-// ── Health check (Railway uses this) ──────────────────────────────
-app.get('/healthz', (_req, res) => res.json({
-  status: 'ok',
-  cache: {
-    entries: fredCache.size,
-    hits: cacheHits,
-    misses: cacheMisses,
-    hitRate: cacheHits + cacheMisses > 0
-      ? ((cacheHits / (cacheHits + cacheMisses)) * 100).toFixed(1) + '%'
-      : 'n/a',
-    evictions: cacheEvictions,
-    ttlMinutes: FRED_CACHE_TTL / 60000,
+// ── ISM PMI persistence ───────────────────────────────────────────
+// Stored as a simple JSON file in dashboard/data/ism.json (committed
+// to git for free persistence across Railway deploys).
+const ISM_FILE = path.join(__dirname, 'dashboard', 'data', 'ism.json');
+
+function readISM() {
+  try {
+    if (!fs.existsSync(ISM_FILE)) return {};
+    return JSON.parse(fs.readFileSync(ISM_FILE, 'utf8') || '{}');
+  } catch (e) {
+    console.error('Error reading ism.json:', e.message);
+    return {};
   }
-}));
+}
+function writeISM(data) {
+  // Ensure dir exists (on first run after git clone)
+  fs.mkdirSync(path.dirname(ISM_FILE), { recursive: true });
+  fs.writeFileSync(ISM_FILE, JSON.stringify(data, null, 2));
+}
+
+// Public read — anyone visiting the site sees the same ISM data
+app.get('/api/ism', (_req, res) => {
+  res.set('Access-Control-Allow-Origin', '*');
+  res.json(readISM());
+});
+
+// Admin write — requires Bearer token matching ADMIN_TOKEN
+function requireAdmin(req, res, next) {
+  const auth = req.get('Authorization') || '';
+  const token = auth.replace(/^Bearer\s+/i, '').trim();
+  if (!ADMIN_TOKEN || token !== ADMIN_TOKEN) {
+    return res.status(401).json({ error: 'Unauthorized — invalid or missing admin token' });
+  }
+  next();
+}
+
+// Add or update one month's worth of ISM data
+// Body: { date: 'YYYY-MM-DD', values: { NAPM: 49.0, NAPMNOI: 48.0, ... } }
+app.post('/api/ism', requireAdmin, (req, res) => {
+  const { date, values } = req.body || {};
+  if (!date || typeof date !== 'string' || !/^\d{4}-\d{2}-01$/.test(date)) {
+    return res.status(400).json({ error: 'Invalid date — expected format YYYY-MM-01' });
+  }
+  if (!values || typeof values !== 'object') {
+    return res.status(400).json({ error: 'Missing values object' });
+  }
+  const data = readISM();
+  data[date] = { ...(data[date] || {}), ...values };
+  writeISM(data);
+  res.json({ ok: true, date, data: data[date] });
+});
+
+// Delete a month
+app.delete('/api/ism/:date', requireAdmin, (req, res) => {
+  const date = req.params.date;
+  const data = readISM();
+  if (!data[date]) return res.status(404).json({ error: 'Date not found' });
+  delete data[date];
+  writeISM(data);
+  res.json({ ok: true, deleted: date });
+});
+
+// Bulk replace — admin can paste a full JSON via single POST
+app.put('/api/ism', requireAdmin, (req, res) => {
+  if (!req.body || typeof req.body !== 'object') {
+    return res.status(400).json({ error: 'Body must be a JSON object' });
+  }
+  writeISM(req.body);
+  res.json({ ok: true, entries: Object.keys(req.body).length });
+});
+
+// ── Health check (Railway uses this) ──────────────────────────────
+app.get('/healthz', (_req, res) => {
+  const ism = readISM();
+  res.json({
+    status: 'ok',
+    fredCache: {
+      entries: fredCache.size,
+      hits: cacheHits,
+      misses: cacheMisses,
+      hitRate: cacheHits + cacheMisses > 0
+        ? ((cacheHits / (cacheHits + cacheMisses)) * 100).toFixed(1) + '%'
+        : 'n/a',
+      evictions: cacheEvictions,
+      ttlMinutes: FRED_CACHE_TTL / 60000,
+    },
+    ism: {
+      monthsStored: Object.keys(ism).length,
+      latestMonth: Object.keys(ism).sort().reverse()[0] || null,
+      adminTokenConfigured: !!ADMIN_TOKEN,
+    }
+  });
+});
 
 // ── Catch-all → serve index.html ──────────────────────────────────
 app.get('*', (_req, res) => {
