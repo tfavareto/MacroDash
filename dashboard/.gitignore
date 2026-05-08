@@ -1,0 +1,5 @@
+# Local secrets — never commit
+js/secrets.local.js
+**/secrets.local.js
+.env
+.env.local
