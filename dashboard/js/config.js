@@ -611,16 +611,6 @@ const USA_CHARTS = {
         why:  'É o melhor leading indicator de inflação que existe. Fed acompanha de perto. Acima de 70 historicamente associado a inflação >5%.'
       }
     },
-    {
-      title: 'Regional Fed Mfg (free substitute) — Empire State vs Philly', type: 'line',
-      series: ['GACDISA066MSFRBNY','GACDFSA066MSFRBPHI'], refLine: 0,
-      explanation: {
-        what: 'Pesquisas regionais do Fed (NY e Philly) usadas como proxy gratuito do ISM (que é pago).',
-        up:   'Convergência ascendente entre os dois: sinal forte de expansão industrial nacional.',
-        down: 'Divergência (um sobe, outro cai): ruído regional. Ambos caindo: confirma fraqueza.',
-        why:  'Correlação de ~0.85 com ISM Manufacturing. Permite acompanhar o ciclo industrial mesmo sem acesso pago ao ISM.'
-      }
-    },
   ],
 
   gdp: [
