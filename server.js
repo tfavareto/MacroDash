@@ -10,6 +10,7 @@
 
 const express = require('express');
 const path    = require('path');
+const fs      = require('fs');
 const https   = require('https');
 const { Pool } = require('pg');
 
@@ -17,6 +18,13 @@ const app  = express();
 const PORT = process.env.PORT || 5173;
 const FRED_API_KEY  = process.env.FRED_API_KEY  || '';
 const DATABASE_URL  = process.env.DATABASE_URL  || '';
+
+// Reserved user_id for the global read-only ISM history (seeded from
+// dashboard/data/ism_global_seed.json on first boot). All visitors see
+// this baseline; their own additions are stored under their UUID and
+// merged on top.
+const GLOBAL_USER = '__global__';
+const ISM_SEED_FILE = path.join(__dirname, 'dashboard', 'data', 'ism_global_seed.json');
 
 app.use(express.json({ limit: '512kb' }));
 
@@ -38,7 +46,7 @@ if (DATABASE_URL) {
   console.warn('   On Railway: add a Postgres plugin → DATABASE_URL is auto-injected.');
 }
 
-// Initialize schema on startup
+// Initialize schema on startup + seed global ISM history if missing
 async function initSchema() {
   if (!pool) return;
   await pool.query(`
@@ -52,6 +60,43 @@ async function initSchema() {
   `);
   await pool.query(`CREATE INDEX IF NOT EXISTS idx_ism_user ON ism_data(user_id);`);
   console.log('✓ Postgres schema ready');
+
+  // Seed the global history (idempotent — only fills missing dates)
+  try {
+    if (!fs.existsSync(ISM_SEED_FILE)) {
+      console.warn('⚠️  ism_global_seed.json not found — skipping global seed.');
+      return;
+    }
+    const seed = JSON.parse(fs.readFileSync(ISM_SEED_FILE, 'utf8'));
+    const seedDates = Object.keys(seed);
+    if (!seedDates.length) return;
+
+    const client = await pool.connect();
+    try {
+      // Bulk upsert with ON CONFLICT DO NOTHING to keep this idempotent
+      // (re-running on later deploys won't overwrite anything new).
+      await client.query('BEGIN');
+      let inserted = 0;
+      for (const date of seedDates) {
+        const r = await client.query(
+          `INSERT INTO ism_data (user_id, date, values)
+           VALUES ($1, $2, $3)
+           ON CONFLICT (user_id, date) DO NOTHING`,
+          [GLOBAL_USER, date, seed[date]]
+        );
+        if (r.rowCount) inserted++;
+      }
+      await client.query('COMMIT');
+      console.log(`✓ Global ISM history: ${inserted} new month(s) seeded (total in seed: ${seedDates.length})`);
+    } catch (e) {
+      await client.query('ROLLBACK');
+      throw e;
+    } finally {
+      client.release();
+    }
+  } catch (e) {
+    console.error('Error seeding global ISM history:', e.message);
+  }
 }
 
 // ── Server-side FRED cache ────────────────────────────────────────
@@ -126,6 +171,10 @@ function requireUser(req, res, next) {
   if (!userId || userId.length < 8 || userId.length > 64) {
     return res.status(400).json({ error: 'Missing or invalid user_id (provide via X-User-Id header or user_id query param)' });
   }
+  // Block users from impersonating the global history pseudo-user
+  if (userId === GLOBAL_USER || userId.startsWith('__')) {
+    return res.status(403).json({ error: 'Reserved user_id' });
+  }
   if (!pool) {
     return res.status(503).json({ error: 'Database not configured (DATABASE_URL missing)' });
   }
@@ -133,22 +182,36 @@ function requireUser(req, res, next) {
   next();
 }
 
-// GET /api/ism — return all months stored for this user
+// GET /api/ism — returns global history merged with this user's additions
+// (user-specific values override global for the same date).
 app.get('/api/ism', requireUser, async (req, res) => {
   try {
     const { rows } = await pool.query(
-      'SELECT date, values FROM ism_data WHERE user_id = $1 ORDER BY date ASC',
-      [req.userId]
+      `SELECT date, values, user_id
+         FROM ism_data
+        WHERE user_id IN ($1, $2)
+        ORDER BY date ASC`,
+      [GLOBAL_USER, req.userId]
     );
+    // Merge in two passes: global first, then user (so user wins on conflicts)
     const out = {};
-    rows.forEach(r => { out[r.date] = r.values; });
+    rows.forEach(r => {
+      if (r.user_id === GLOBAL_USER) out[r.date] = { ...r.values, _source: 'global' };
+    });
+    rows.forEach(r => {
+      if (r.user_id === req.userId) {
+        const base = out[r.date] ? { ...out[r.date] } : {};
+        delete base._source;
+        out[r.date] = { ...base, ...r.values, _source: 'user' };
+      }
+    });
     res.json(out);
   } catch (e) {
     res.status(500).json({ error: 'DB error: ' + e.message });
   }
 });
 
-// POST /api/ism — upsert one month for this user
+// POST /api/ism — upsert one month under THIS user (never affects global)
 // Body: { date: 'YYYY-MM-01', values: { NAPM: 49.0, ... } }
 app.post('/api/ism', requireUser, async (req, res) => {
   const { date, values } = req.body || {};
@@ -159,7 +222,7 @@ app.post('/api/ism', requireUser, async (req, res) => {
     return res.status(400).json({ error: 'Invalid values object' });
   }
   try {
-    // Merge with existing values for that date
+    // Merge with existing values for that date for this user
     const existing = await pool.query(
       'SELECT values FROM ism_data WHERE user_id = $1 AND date = $2',
       [req.userId, date]

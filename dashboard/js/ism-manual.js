@@ -132,25 +132,31 @@ function renderISMManualPanel(parent) {
 
   const panel = document.createElement('div');
   panel.className = 'ism-panel';
+  // Count global vs user-added months for the info badge
+  const globalCount = Object.values(data).filter(v => v && v._source === 'global').length;
+  const userCount   = Object.values(data).filter(v => v && v._source === 'user').length;
+
   panel.innerHTML = `
     <div class="ism-panel-header">
       <div>
         <strong>ISM PMI · Entrada Manual</strong>
         <span style="color:var(--muted);margin-left:10px;font-size:.75rem">
-          A ISM bloqueia scraping. Copie os valores de
-          <a href="https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/" target="_blank" style="color:var(--gold);text-decoration:none">ismworld.org</a>.
-          Os dados ficam salvos no PostgreSQL vinculados ao seu navegador.
+          Histórico oficial fixo (2000–presente). Adicione novos meses via
+          <strong style="color:var(--gold)">+ Adicionar Mês</strong>. Fonte:
+          <a href="https://www.ismworld.org/supply-management-news-and-reports/reports/ism-pmi-reports/" target="_blank" style="color:var(--gold);text-decoration:none">ismworld.org</a>
         </span>
+        <div style="margin-top:6px;font-size:.7rem;color:var(--muted)">
+          📚 <strong style="color:var(--text)">${globalCount}</strong> meses no histórico oficial
+          ${userCount > 0 ? `· ✏️ <strong style="color:var(--gold)">${userCount}</strong> meses cadastrados por você` : ''}
+        </div>
       </div>
       <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
         <button class="btn-help-ism" id="btn-help-ism" title="Como usar — passo a passo">?</button>
-        <button class="btn-add-ism btn-import-ism" id="btn-import-ism" title="Importar planilha Excel/CSV">📥 Importar Planilha</button>
         <button class="btn-add-ism" id="btn-new-ism">+ Adicionar Mês</button>
       </div>
     </div>
-    <div class="ism-help"   id="ism-help"   style="display:none"></div>
-    <div class="ism-import" id="ism-import" style="display:none"></div>
-    <div class="ism-form"   id="ism-form"   style="display:none"></div>
+    <div class="ism-help" id="ism-help" style="display:none"></div>
+    <div class="ism-form" id="ism-form" style="display:none"></div>
     <div class="ism-table-wrap"></div>
   `;
   parent.appendChild(panel);
@@ -163,17 +169,6 @@ function renderISMManualPanel(parent) {
       help.style.display = 'block';
     } else {
       help.style.display = 'none';
-    }
-  });
-
-  // Import button toggle
-  panel.querySelector('#btn-import-ism')?.addEventListener('click', () => {
-    const box = panel.querySelector('#ism-import');
-    if (box.style.display === 'none') {
-      renderISMImport(box);
-      box.style.display = 'block';
-    } else {
-      box.style.display = 'none';
     }
   });
 
@@ -195,6 +190,7 @@ function renderISMManualPanel(parent) {
     tbl.innerHTML = `
       <thead><tr>
         <th>Mês</th>
+        <th title="Origem do dado">Origem</th>
         ${ISM_FIELDS.map(f => `<th class="num">${f.label}</th>`).join('')}
         <th></th>
       </tr></thead>
@@ -203,15 +199,20 @@ function renderISMManualPanel(parent) {
           const v = data[d];
           const [y,m] = d.split('-');
           const months = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
+          const isUser = v && v._source === 'user';
+          const sourceTag = isUser
+            ? '<span style="font-size:.65rem;font-weight:700;color:var(--gold);background:rgba(255,122,0,0.12);padding:2px 6px;border-radius:3px">Você</span>'
+            : '<span style="font-size:.65rem;font-weight:600;color:var(--muted2);background:rgba(255,255,255,0.04);padding:2px 6px;border-radius:3px">Oficial</span>';
           return `<tr>
             <td class="td-name">${months[+m-1]}/${y.slice(2)}</td>
+            <td>${sourceTag}</td>
             ${ISM_FIELDS.map(f => {
               const val = v[f.key];
               if (val === undefined || val === null || val === '') return `<td class="num td-neu">—</td>`;
               const cls = val >= 50 ? 'td-pos' : 'td-neg';
               return `<td class="num ${cls}">${(+val).toFixed(1)}</td>`;
             }).join('')}
-            <td><button class="btn-del-ism" data-date="${d}" title="Excluir mês">×</button></td>
+            <td>${isUser ? `<button class="btn-del-ism" data-date="${d}" title="Excluir mês">×</button>` : ''}</td>
           </tr>`;
         }).join('')}
       </tbody>
@@ -243,7 +244,7 @@ function renderISMManualPanel(parent) {
       tableWrap.appendChild(toggleBtn);
     }
   } else {
-    tableWrap.innerHTML = '<div style="color:var(--muted);padding:12px;font-size:.8rem">Nenhum dado cadastrado. Clique em "+ Adicionar Mês" ou "📥 Importar Planilha" para começar.</div>';
+    tableWrap.innerHTML = '<div style="color:var(--muted);padding:12px;font-size:.8rem">Carregando histórico oficial... (verifique se o servidor está conectado ao Postgres)</div>';
   }
 
   // New entry button
