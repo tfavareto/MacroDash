@@ -1,0 +1,3087 @@
+{
+  "2000-02-01": {
+    "NAPM": 55.8,
+    "NAPMEI": 51.2,
+    "NAPMNOI": 58.7,
+    "NMFCI": 56.2,
+    "NMFEI": 55.0,
+    "NMFNOI": 58.9,
+    "NMFPRI": 66.5
+  },
+  "2000-03-01": {
+    "NAPM": 54.9,
+    "NAPMEI": 51.2,
+    "NAPMNOI": 56.2,
+    "NMFCI": 57.4,
+    "NMFEI": 54.4,
+    "NMFNOI": 61.7,
+    "NMFPRI": 68.6
+  },
+  "2000-04-01": {
+    "NAPM": 54.7,
+    "NAPMEI": 53.2,
+    "NAPMNOI": 55.4,
+    "NMFCI": 58.0,
+    "NMFEI": 53.5,
+    "NMFNOI": 61.5,
+    "NMFPRI": 65.0
+  },
+  "2000-05-01": {
+    "NAPM": 53.2,
+    "NAPMEI": 53.0,
+    "NAPMNOI": 51.5,
+    "NMFCI": 57.7,
+    "NMFEI": 54.4,
+    "NMFNOI": 60.5,
+    "NMFPRI": 64.2
+  },
+  "2000-06-01": {
+    "NAPM": 51.4,
+    "NAPMEI": 50.7,
+    "NAPMNOI": 50.0,
+    "NMFCI": 56.9,
+    "NMFEI": 50.5,
+    "NMFNOI": 59.4,
+    "NMFPRI": 65.0
+  },
+  "2000-07-01": {
+    "NAPM": 52.5,
+    "NAPMEI": 52.5,
+    "NAPMNOI": 52.0,
+    "NMFCI": 55.3,
+    "NMFEI": 54.2,
+    "NMFNOI": 59.7,
+    "NMFPRI": 62.1
+  },
+  "2000-08-01": {
+    "NAPM": 49.9,
+    "NAPMEI": 48.8,
+    "NAPMNOI": 50.0,
+    "NMFCI": 57.6,
+    "NMFEI": 53.5,
+    "NMFNOI": 59.8,
+    "NMFPRI": 59.2
+  },
+  "2000-09-01": {
+    "NAPM": 49.7,
+    "NAPMEI": 50.6,
+    "NAPMNOI": 48.9,
+    "NMFCI": 56.7,
+    "NMFEI": 54.5,
+    "NMFNOI": 60.4,
+    "NMFPRI": 62.1
+  },
+  "2000-10-01": {
+    "NAPM": 48.7,
+    "NAPMEI": 48.2,
+    "NAPMNOI": 48.4,
+    "NMFCI": 56.7,
+    "NMFEI": 54.6,
+    "NMFNOI": 59.2,
+    "NMFPRI": 63.7
+  },
+  "2000-11-01": {
+    "NAPM": 48.5,
+    "NAPMEI": 47.1,
+    "NAPMNOI": 49.1,
+    "NMFCI": 56.2,
+    "NMFEI": 52.4,
+    "NMFNOI": 56.4,
+    "NMFPRI": 60.9
+  },
+  "2000-12-01": {
+    "NAPM": 43.9,
+    "NAPMEI": 42.7,
+    "NAPMNOI": 42.1,
+    "NMFCI": 54.0,
+    "NMFEI": 51.7,
+    "NMFNOI": 54.9,
+    "NMFPRI": 63.5
+  },
+  "2001-01-01": {
+    "NAPM": 42.3,
+    "NAPMEI": 42.3,
+    "NAPMNOI": 38.4,
+    "NMFCI": 51.6,
+    "NMFEI": 50.7,
+    "NMFNOI": 50.8,
+    "NMFPRI": 61.8
+  },
+  "2001-02-01": {
+    "NAPM": 42.1,
+    "NAPMEI": 37.8,
+    "NAPMNOI": 39.9,
+    "NMFCI": 51.3,
+    "NMFEI": 49.6,
+    "NMFNOI": 51.4,
+    "NMFPRI": 58.1
+  },
+  "2001-03-01": {
+    "NAPM": 43.1,
+    "NAPMEI": 39.9,
+    "NAPMNOI": 41.5,
+    "NMFCI": 50.7,
+    "NMFEI": 46.5,
+    "NMFNOI": 52.6,
+    "NMFPRI": 55.8
+  },
+  "2001-04-01": {
+    "NAPM": 42.7,
+    "NAPMEI": 38.2,
+    "NAPMNOI": 45.5,
+    "NMFCI": 48.3,
+    "NMFEI": 46.7,
+    "NMFNOI": 47.2,
+    "NMFPRI": 53.8
+  },
+  "2001-05-01": {
+    "NAPM": 41.3,
+    "NAPMEI": 35.1,
+    "NAPMNOI": 44.9,
+    "NMFCI": 49.0,
+    "NMFEI": 45.6,
+    "NMFNOI": 49.3,
+    "NMFPRI": 58.5
+  },
+  "2001-06-01": {
+    "NAPM": 43.2,
+    "NAPMEI": 35.7,
+    "NAPMNOI": 47.8,
+    "NMFCI": 50.1,
+    "NMFEI": 46.4,
+    "NMFNOI": 52.2,
+    "NMFPRI": 54.5
+  },
+  "2001-07-01": {
+    "NAPM": 43.5,
+    "NAPMEI": 37.2,
+    "NAPMNOI": 49.2,
+    "NMFCI": 48.1,
+    "NMFEI": 45.7,
+    "NMFNOI": 47.5,
+    "NMFPRI": 49.9
+  },
+  "2001-08-01": {
+    "NAPM": 46.3,
+    "NAPMEI": 41.3,
+    "NAPMNOI": 54.3,
+    "NMFCI": 46.9,
+    "NMFEI": 46.4,
+    "NMFNOI": 46.5,
+    "NMFPRI": 48.9
+  },
+  "2001-09-01": {
+    "NAPM": 46.2,
+    "NAPMEI": 41.5,
+    "NAPMNOI": 51.3,
+    "NMFCI": 49.5,
+    "NMFEI": 43.9,
+    "NMFNOI": 50.8,
+    "NMFPRI": 50.2
+  },
+  "2001-10-01": {
+    "NAPM": 40.8,
+    "NAPMEI": 35.6,
+    "NAPMNOI": 38.9,
+    "NMFCI": 44.8,
+    "NMFEI": 44.5,
+    "NMFNOI": 41.3,
+    "NMFPRI": 43.4
+  },
+  "2001-11-01": {
+    "NAPM": 44.1,
+    "NAPMEI": 36.4,
+    "NAPMNOI": 49.1,
+    "NMFCI": 48.2,
+    "NMFEI": 44.6,
+    "NMFNOI": 46.4,
+    "NMFPRI": 41.3
+  },
+  "2001-12-01": {
+    "NAPM": 45.3,
+    "NAPMEI": 39.1,
+    "NAPMNOI": 51.4,
+    "NMFCI": 49.7,
+    "NMFEI": 44.3,
+    "NMFNOI": 49.9,
+    "NMFPRI": 42.3
+  },
+  "2002-01-01": {
+    "NAPM": 47.5,
+    "NAPMEI": 41.0,
+    "NAPMNOI": 55.2,
+    "NMFCI": 48.9,
+    "NMFEI": 43.9,
+    "NMFNOI": 48.3,
+    "NMFPRI": 48.8
+  },
+  "2002-02-01": {
+    "NAPM": 50.7,
+    "NAPMEI": 43.8,
+    "NAPMNOI": 60.7,
+    "NMFCI": 52.7,
+    "NMFEI": 45.8,
+    "NMFNOI": 56.3,
+    "NMFPRI": 47.6
+  },
+  "2002-03-01": {
+    "NAPM": 52.4,
+    "NAPMEI": 46.6,
+    "NAPMNOI": 63.8,
+    "NMFCI": 52.8,
+    "NMFEI": 47.8,
+    "NMFNOI": 56.4,
+    "NMFPRI": 49.2
+  },
+  "2002-04-01": {
+    "NAPM": 52.4,
+    "NAPMEI": 46.6,
+    "NAPMNOI": 59.9,
+    "NMFCI": 53.5,
+    "NMFEI": 49.2,
+    "NMFNOI": 58.4,
+    "NMFPRI": 53.7
+  },
+  "2002-05-01": {
+    "NAPM": 53.1,
+    "NAPMEI": 47.3,
+    "NAPMNOI": 61.8,
+    "NMFCI": 54.8,
+    "NMFEI": 44.0,
+    "NMFNOI": 57.3,
+    "NMFPRI": 55.2
+  },
+  "2002-06-01": {
+    "NAPM": 53.6,
+    "NAPMEI": 48.3,
+    "NAPMNOI": 61.2,
+    "NMFCI": 52.5,
+    "NMFEI": 46.1,
+    "NMFNOI": 56.4,
+    "NMFPRI": 53.1
+  },
+  "2002-07-01": {
+    "NAPM": 50.2,
+    "NAPMEI": 45.0,
+    "NAPMNOI": 51.9,
+    "NMFCI": 50.4,
+    "NMFEI": 47.2,
+    "NMFNOI": 50.7,
+    "NMFPRI": 60.5
+  },
+  "2002-08-01": {
+    "NAPM": 50.3,
+    "NAPMEI": 46.8,
+    "NAPMNOI": 50.6,
+    "NMFCI": 50.9,
+    "NMFEI": 47.1,
+    "NMFNOI": 51.6,
+    "NMFPRI": 55.1
+  },
+  "2002-09-01": {
+    "NAPM": 50.5,
+    "NAPMEI": 45.8,
+    "NAPMNOI": 52.9,
+    "NMFCI": 52.3,
+    "NMFEI": 46.6,
+    "NMFNOI": 54.8,
+    "NMFPRI": 53.4
+  },
+  "2002-10-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 46.4,
+    "NAPMNOI": 52.1,
+    "NMFCI": 51.4,
+    "NMFEI": 46.0,
+    "NMFNOI": 52.3,
+    "NMFPRI": 56.1
+  },
+  "2002-11-01": {
+    "NAPM": 48.5,
+    "NAPMEI": 44.8,
+    "NAPMNOI": 49.9,
+    "NMFCI": 52.9,
+    "NMFEI": 47.0,
+    "NMFNOI": 56.4,
+    "NMFPRI": 57.6
+  },
+  "2002-12-01": {
+    "NAPM": 51.6,
+    "NAPMEI": 47.5,
+    "NAPMNOI": 58.7,
+    "NMFCI": 52.3,
+    "NMFEI": 50.5,
+    "NMFNOI": 54.2,
+    "NMFPRI": 56.5
+  },
+  "2003-01-01": {
+    "NAPM": 51.3,
+    "NAPMEI": 47.4,
+    "NAPMNOI": 58.2,
+    "NAPMPRI": 57.5,
+    "NMFCI": 53.3,
+    "NMFEI": 48.5,
+    "NMFNOI": 54.4,
+    "NMFPRI": 58.0
+  },
+  "2003-02-01": {
+    "NAPM": 48.8,
+    "NAPMEI": 42.6,
+    "NAPMNOI": 51.9,
+    "NAPMPRI": 65.5,
+    "NMFCI": 52.6,
+    "NMFEI": 48.1,
+    "NMFNOI": 53.9,
+    "NMFPRI": 60.5
+  },
+  "2003-03-01": {
+    "NAPM": 46.3,
+    "NAPMEI": 42.2,
+    "NAPMNOI": 47.2,
+    "NAPMPRI": 70.0,
+    "NMFCI": 49.1,
+    "NMFEI": 48.7,
+    "NMFNOI": 49.9,
+    "NMFPRI": 59.4
+  },
+  "2003-04-01": {
+    "NAPM": 46.1,
+    "NAPMEI": 41.8,
+    "NAPMNOI": 47.2,
+    "NAPMPRI": 63.5,
+    "NMFCI": 50.1,
+    "NMFEI": 48.5,
+    "NMFNOI": 50.4,
+    "NMFPRI": 55.7
+  },
+  "2003-05-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 42.4,
+    "NAPMNOI": 53.4,
+    "NAPMPRI": 51.5,
+    "NMFCI": 52.8,
+    "NMFEI": 49.3,
+    "NMFNOI": 55.9,
+    "NMFPRI": 50.0
+  },
+  "2003-06-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 45.6,
+    "NAPMNOI": 53.6,
+    "NAPMPRI": 56.5,
+    "NMFCI": 54.3,
+    "NMFEI": 50.5,
+    "NMFNOI": 57.1,
+    "NMFPRI": 52.3
+  },
+  "2003-07-01": {
+    "NAPM": 51.0,
+    "NAPMEI": 46.3,
+    "NAPMNOI": 56.8,
+    "NAPMPRI": 53.0,
+    "NMFCI": 57.3,
+    "NMFEI": 51.7,
+    "NMFNOI": 62.3,
+    "NMFPRI": 51.4
+  },
+  "2003-08-01": {
+    "NAPM": 53.2,
+    "NAPMEI": 47.1,
+    "NAPMNOI": 61.1,
+    "NAPMPRI": 53.0,
+    "NMFCI": 59.1,
+    "NMFEI": 50.1,
+    "NMFNOI": 66.9,
+    "NMFPRI": 56.1
+  },
+  "2003-09-01": {
+    "NAPM": 52.4,
+    "NAPMEI": 46.5,
+    "NAPMNOI": 60.8,
+    "NAPMPRI": 56.0,
+    "NMFCI": 57.6,
+    "NMFEI": 53.0,
+    "NMFNOI": 61.4,
+    "NMFPRI": 59.5
+  },
+  "2003-10-01": {
+    "NAPM": 55.2,
+    "NAPMEI": 48.6,
+    "NAPMNOI": 64.4,
+    "NAPMPRI": 58.5,
+    "NMFCI": 58.7,
+    "NMFEI": 54.4,
+    "NMFNOI": 64.2,
+    "NMFPRI": 57.2
+  },
+  "2003-11-01": {
+    "NAPM": 58.4,
+    "NAPMEI": 50.4,
+    "NAPMNOI": 69.1,
+    "NAPMPRI": 64.0,
+    "NMFCI": 57.5,
+    "NMFEI": 54.0,
+    "NMFNOI": 61.3,
+    "NMFPRI": 58.5
+  },
+  "2003-12-01": {
+    "NAPM": 60.1,
+    "NAPMEI": 54.1,
+    "NAPMNOI": 71.3,
+    "NAPMPRI": 66.0,
+    "NMFCI": 56.8,
+    "NMFEI": 55.1,
+    "NMFNOI": 61.2,
+    "NMFPRI": 61.1
+  },
+  "2004-01-01": {
+    "NAPM": 60.8,
+    "NAPMEI": 54.7,
+    "NAPMNOI": 70.6,
+    "NAPMPRI": 75.5,
+    "NMFCI": 61.2,
+    "NMFEI": 52.9,
+    "NMFNOI": 65.4,
+    "NMFPRI": 62.2
+  },
+  "2004-02-01": {
+    "NAPM": 59.9,
+    "NAPMEI": 55.7,
+    "NAPMNOI": 66.5,
+    "NAPMPRI": 81.5,
+    "NMFCI": 58.0,
+    "NMFEI": 53.8,
+    "NMFNOI": 61.2,
+    "NMFPRI": 59.5
+  },
+  "2004-03-01": {
+    "NAPM": 60.6,
+    "NAPMEI": 57.0,
+    "NAPMNOI": 64.6,
+    "NAPMPRI": 86.0,
+    "NMFCI": 58.3,
+    "NMFEI": 54.7,
+    "NMFNOI": 62.1,
+    "NMFPRI": 65.0
+  },
+  "2004-04-01": {
+    "NAPM": 60.6,
+    "NAPMEI": 57.2,
+    "NAPMNOI": 67.1,
+    "NAPMPRI": 88.0,
+    "NMFCI": 59.6,
+    "NMFEI": 54.5,
+    "NMFNOI": 61.6,
+    "NMFPRI": 68.6
+  },
+  "2004-05-01": {
+    "NAPM": 61.4,
+    "NAPMEI": 60.1,
+    "NAPMNOI": 64.5,
+    "NAPMPRI": 86.0,
+    "NMFCI": 58.5,
+    "NMFEI": 55.6,
+    "NMFNOI": 60.7,
+    "NMFPRI": 71.0
+  },
+  "2004-06-01": {
+    "NAPM": 60.5,
+    "NAPMEI": 59.4,
+    "NAPMNOI": 60.9,
+    "NAPMPRI": 81.0,
+    "NMFCI": 58.6,
+    "NMFEI": 49.7,
+    "NMFNOI": 62.1,
+    "NMFPRI": 74.2
+  },
+  "2004-07-01": {
+    "NAPM": 59.9,
+    "NAPMEI": 57.4,
+    "NAPMNOI": 62.8,
+    "NAPMPRI": 77.0,
+    "NMFCI": 58.5,
+    "NMFEI": 53.5,
+    "NMFNOI": 63.2,
+    "NMFPRI": 71.9
+  },
+  "2004-08-01": {
+    "NAPM": 58.5,
+    "NAPMEI": 56.4,
+    "NAPMNOI": 62.1,
+    "NAPMPRI": 81.5,
+    "NMFCI": 57.3,
+    "NMFEI": 55.3,
+    "NMFNOI": 59.0,
+    "NMFPRI": 70.9
+  },
+  "2004-09-01": {
+    "NAPM": 57.4,
+    "NAPMEI": 58.0,
+    "NAPMNOI": 57.7,
+    "NAPMPRI": 76.0,
+    "NMFCI": 57.9,
+    "NMFEI": 56.5,
+    "NMFNOI": 60.6,
+    "NMFPRI": 67.0
+  },
+  "2004-10-01": {
+    "NAPM": 56.3,
+    "NAPMEI": 55.5,
+    "NAPMNOI": 58.4,
+    "NAPMPRI": 78.5,
+    "NMFCI": 58.8,
+    "NMFEI": 54.8,
+    "NMFNOI": 61.7,
+    "NMFPRI": 72.8
+  },
+  "2004-11-01": {
+    "NAPM": 56.2,
+    "NAPMEI": 56.9,
+    "NAPMNOI": 60.1,
+    "NAPMPRI": 74.0,
+    "NMFCI": 58.4,
+    "NMFEI": 54.7,
+    "NMFNOI": 61.1,
+    "NMFPRI": 70.6
+  },
+  "2004-12-01": {
+    "NAPM": 57.2,
+    "NAPMEI": 53.8,
+    "NAPMNOI": 66.3,
+    "NAPMPRI": 72.0,
+    "NMFCI": 59.6,
+    "NMFEI": 54.6,
+    "NMFNOI": 63.2,
+    "NMFPRI": 71.3
+  },
+  "2005-01-01": {
+    "NAPM": 56.8,
+    "NAPMEI": 58.6,
+    "NAPMNOI": 57.9,
+    "NAPMPRI": 69.0,
+    "NMFCI": 58.0,
+    "NMFEI": 59.7,
+    "NMFNOI": 62.4,
+    "NMFPRI": 69.1
+  },
+  "2005-02-01": {
+    "NAPM": 55.5,
+    "NAPMEI": 56.0,
+    "NAPMNOI": 55.9,
+    "NAPMPRI": 65.5,
+    "NMFCI": 59.4,
+    "NMFEI": 57.2,
+    "NMFNOI": 63.3,
+    "NMFPRI": 69.7
+  },
+  "2005-03-01": {
+    "NAPM": 55.2,
+    "NAPMEI": 52.5,
+    "NAPMNOI": 57.7,
+    "NAPMPRI": 73.0,
+    "NMFCI": 58.0,
+    "NMFEI": 53.3,
+    "NMFNOI": 60.5,
+    "NMFPRI": 65.6
+  },
+  "2005-04-01": {
+    "NAPM": 52.2,
+    "NAPMEI": 53.0,
+    "NAPMNOI": 53.4,
+    "NAPMPRI": 71.0,
+    "NMFCI": 55.6,
+    "NMFEI": 51.8,
+    "NMFNOI": 57.5,
+    "NMFPRI": 62.4
+  },
+  "2005-05-01": {
+    "NAPM": 50.8,
+    "NAPMEI": 49.3,
+    "NAPMNOI": 51.8,
+    "NAPMPRI": 58.0,
+    "NMFCI": 55.3,
+    "NMFEI": 55.8,
+    "NMFNOI": 58.2,
+    "NMFPRI": 57.6
+  },
+  "2005-06-01": {
+    "NAPM": 52.4,
+    "NAPMEI": 51.1,
+    "NAPMNOI": 55.7,
+    "NAPMPRI": 50.5,
+    "NMFCI": 58.1,
+    "NMFEI": 55.1,
+    "NMFNOI": 59.2,
+    "NMFPRI": 58.4
+  },
+  "2005-07-01": {
+    "NAPM": 52.8,
+    "NAPMEI": 53.2,
+    "NAPMNOI": 57.2,
+    "NAPMPRI": 48.5,
+    "NMFCI": 59.5,
+    "NMFEI": 60.2,
+    "NMFNOI": 64.4,
+    "NMFPRI": 65.8
+  },
+  "2005-08-01": {
+    "NAPM": 52.4,
+    "NAPMEI": 51.8,
+    "NAPMNOI": 57.8,
+    "NAPMPRI": 62.5,
+    "NMFCI": 61.3,
+    "NMFEI": 55.4,
+    "NMFNOI": 65.3,
+    "NMFPRI": 66.1
+  },
+  "2005-09-01": {
+    "NAPM": 56.8,
+    "NAPMEI": 53.4,
+    "NAPMNOI": 60.9,
+    "NAPMPRI": 78.0,
+    "NMFCI": 55.7,
+    "NMFEI": 54.2,
+    "NMFNOI": 56.2,
+    "NMFPRI": 83.5
+  },
+  "2005-10-01": {
+    "NAPM": 57.2,
+    "NAPMEI": 54.3,
+    "NAPMNOI": 61.4,
+    "NAPMPRI": 84.0,
+    "NMFCI": 57.4,
+    "NMFEI": 56.9,
+    "NMFNOI": 57.5,
+    "NMFPRI": 79.2
+  },
+  "2005-11-01": {
+    "NAPM": 56.7,
+    "NAPMEI": 56.0,
+    "NAPMNOI": 61.2,
+    "NAPMPRI": 74.0,
+    "NMFCI": 59.1,
+    "NMFEI": 56.4,
+    "NMFNOI": 59.6,
+    "NMFPRI": 72.6
+  },
+  "2005-12-01": {
+    "NAPM": 55.1,
+    "NAPMEI": 53.7,
+    "NAPMNOI": 60.1,
+    "NAPMPRI": 63.0,
+    "NMFCI": 59.0,
+    "NMFEI": 54.5,
+    "NMFNOI": 62.8,
+    "NMFPRI": 68.9
+  },
+  "2006-01-01": {
+    "NAPM": 55.0,
+    "NAPMEI": 53.1,
+    "NAPMNOI": 58.9,
+    "NAPMPRI": 65.0,
+    "NMFCI": 56.3,
+    "NMFEI": 58.1,
+    "NMFNOI": 57.4,
+    "NMFPRI": 69.9
+  },
+  "2006-02-01": {
+    "NAPM": 55.8,
+    "NAPMEI": 53.5,
+    "NAPMNOI": 61.0,
+    "NAPMPRI": 62.5,
+    "NMFCI": 57.6,
+    "NMFEI": 55.1,
+    "NMFNOI": 57.8,
+    "NMFPRI": 67.8
+  },
+  "2006-03-01": {
+    "NAPM": 54.3,
+    "NAPMEI": 53.8,
+    "NAPMNOI": 57.0,
+    "NAPMPRI": 66.5,
+    "NMFCI": 56.9,
+    "NMFEI": 56.5,
+    "NMFNOI": 58.6,
+    "NMFPRI": 60.1
+  },
+  "2006-04-01": {
+    "NAPM": 55.2,
+    "NAPMEI": 54.2,
+    "NAPMNOI": 55.7,
+    "NAPMPRI": 71.5,
+    "NMFCI": 58.4,
+    "NMFEI": 54.6,
+    "NMFNOI": 61.1,
+    "NMFPRI": 68.5
+  },
+  "2006-05-01": {
+    "NAPM": 53.7,
+    "NAPMEI": 53.2,
+    "NAPMNOI": 54.9,
+    "NAPMPRI": 77.0,
+    "NMFCI": 57.0,
+    "NMFEI": 51.2,
+    "NMFNOI": 58.6,
+    "NMFPRI": 70.5
+  },
+  "2006-06-01": {
+    "NAPM": 52.0,
+    "NAPMEI": 49.9,
+    "NAPMNOI": 55.0,
+    "NAPMPRI": 76.5,
+    "NMFCI": 55.2,
+    "NMFEI": 53.6,
+    "NMFNOI": 57.0,
+    "NMFPRI": 69.0
+  },
+  "2006-07-01": {
+    "NAPM": 53.0,
+    "NAPMEI": 50.7,
+    "NAPMNOI": 55.8,
+    "NAPMPRI": 78.5,
+    "NMFCI": 55.6,
+    "NMFEI": 52.2,
+    "NMFNOI": 58.1,
+    "NMFPRI": 70.6
+  },
+  "2006-08-01": {
+    "NAPM": 53.7,
+    "NAPMEI": 52.6,
+    "NAPMNOI": 55.3,
+    "NAPMPRI": 73.0,
+    "NMFCI": 53.9,
+    "NMFEI": 52.9,
+    "NMFNOI": 53.1,
+    "NMFPRI": 72.2
+  },
+  "2006-09-01": {
+    "NAPM": 52.2,
+    "NAPMEI": 49.9,
+    "NAPMNOI": 54.8,
+    "NAPMPRI": 61.0,
+    "NMFCI": 54.5,
+    "NMFEI": 52.9,
+    "NMFNOI": 56.5,
+    "NMFPRI": 60.6
+  },
+  "2006-10-01": {
+    "NAPM": 51.4,
+    "NAPMEI": 49.6,
+    "NAPMNOI": 54.1,
+    "NAPMPRI": 47.0,
+    "NMFCI": 54.9,
+    "NMFEI": 52.2,
+    "NMFNOI": 55.3,
+    "NMFPRI": 56.5
+  },
+  "2006-11-01": {
+    "NAPM": 50.3,
+    "NAPMEI": 49.2,
+    "NAPMNOI": 50.8,
+    "NAPMPRI": 53.5,
+    "NMFCI": 54.5,
+    "NMFEI": 52.7,
+    "NMFNOI": 56.7,
+    "NMFPRI": 56.7
+  },
+  "2006-12-01": {
+    "NAPM": 51.4,
+    "NAPMEI": 49.8,
+    "NAPMNOI": 51.4,
+    "NAPMPRI": 47.5,
+    "NMFCI": 53.7,
+    "NMFEI": 54.5,
+    "NMFNOI": 54.8,
+    "NMFPRI": 60.5
+  },
+  "2007-01-01": {
+    "NAPM": 50.4,
+    "NAPMEI": 52.1,
+    "NAPMNOI": 55.5,
+    "NAPMPRI": 53.6,
+    "NMFCI": 55.6,
+    "NMFEI": 52.2,
+    "NMFNOI": 55.8,
+    "NMFPRI": 57.5
+  },
+  "2007-02-01": {
+    "NAPM": 54.1,
+    "NAPMEI": 54.7,
+    "NAPMNOI": 59.1,
+    "NAPMPRI": 62.5,
+    "NMFCI": 54.2,
+    "NMFEI": 51.7,
+    "NMFNOI": 56.1,
+    "NMFPRI": 57.0
+  },
+  "2007-03-01": {
+    "NAPM": 52.8,
+    "NAPMEI": 52.8,
+    "NAPMNOI": 56.0,
+    "NAPMPRI": 65.5,
+    "NMFCI": 52.0,
+    "NMFEI": 51.9,
+    "NMFNOI": 53.7,
+    "NMFPRI": 64.2
+  },
+  "2007-04-01": {
+    "NAPM": 52.7,
+    "NAPMEI": 52.7,
+    "NAPMNOI": 57.1,
+    "NAPMPRI": 73.0,
+    "NMFCI": 53.3,
+    "NMFEI": 52.5,
+    "NMFNOI": 54.5,
+    "NMFPRI": 63.2
+  },
+  "2007-05-01": {
+    "NAPM": 53.1,
+    "NAPMEI": 51.1,
+    "NAPMNOI": 57.0,
+    "NAPMPRI": 72.6,
+    "NMFCI": 54.2,
+    "NMFEI": 53.2,
+    "NMFNOI": 56.9,
+    "NMFPRI": 62.8
+  },
+  "2007-06-01": {
+    "NAPM": 54.0,
+    "NAPMEI": 55.7,
+    "NAPMNOI": 58.4,
+    "NAPMPRI": 67.1,
+    "NMFCI": 55.3,
+    "NMFEI": 51.3,
+    "NMFNOI": 56.8,
+    "NMFPRI": 61.6
+  },
+  "2007-07-01": {
+    "NAPM": 51.8,
+    "NAPMEI": 50.4,
+    "NAPMNOI": 57.5,
+    "NAPMPRI": 67.4,
+    "NMFCI": 53.6,
+    "NMFEI": 48.3,
+    "NMFNOI": 54.4,
+    "NMFPRI": 59.7
+  },
+  "2007-08-01": {
+    "NAPM": 52.2,
+    "NAPMEI": 50.7,
+    "NAPMNOI": 56.1,
+    "NAPMPRI": 62.9,
+    "NMFCI": 52.8,
+    "NMFEI": 52.2,
+    "NMFNOI": 56.3,
+    "NMFPRI": 60.0
+  },
+  "2007-09-01": {
+    "NAPM": 53.8,
+    "NAPMEI": 53.9,
+    "NAPMNOI": 59.4,
+    "NAPMPRI": 60.4,
+    "NMFCI": 52.5,
+    "NMFEI": 53.4,
+    "NMFNOI": 52.8,
+    "NMFPRI": 66.7
+  },
+  "2007-10-01": {
+    "NAPM": 52.8,
+    "NAPMEI": 53.5,
+    "NAPMNOI": 55.8,
+    "NAPMPRI": 63.9,
+    "NMFCI": 53.5,
+    "NMFEI": 51.8,
+    "NMFNOI": 55.6,
+    "NMFPRI": 66.2
+  },
+  "2007-11-01": {
+    "NAPM": 51.5,
+    "NAPMEI": 53.2,
+    "NAPMNOI": 53.1,
+    "NAPMPRI": 72.0,
+    "NMFCI": 52.7,
+    "NMFEI": 51.6,
+    "NMFNOI": 51.9,
+    "NMFPRI": 75.3
+  },
+  "2007-12-01": {
+    "NAPM": 50.1,
+    "NAPMEI": 51.1,
+    "NAPMNOI": 49.9,
+    "NAPMPRI": 65.7,
+    "NMFCI": 52.5,
+    "NMFEI": 45.2,
+    "NMFNOI": 52.5,
+    "NMFPRI": 72.0
+  },
+  "2008-01-01": {
+    "NAPM": 50.9,
+    "NAPMEI": 49.6,
+    "NAPMNOI": 49.5,
+    "NAPMPRI": 76.2,
+    "NMFCI": 44.8,
+    "NMFEI": 46.9,
+    "NMFNOI": 43.5,
+    "NMFPRI": 71.6
+  },
+  "2008-02-01": {
+    "NAPM": 48.8,
+    "NAPMEI": 47.3,
+    "NAPMNOI": 50.5,
+    "NAPMPRI": 75.7,
+    "NMFCI": 49.9,
+    "NMFEI": 47.0,
+    "NMFNOI": 50.5,
+    "NMFPRI": 71.7
+  },
+  "2008-03-01": {
+    "NAPM": 49.7,
+    "NAPMEI": 52.2,
+    "NAPMNOI": 49.2,
+    "NAPMPRI": 83.1,
+    "NMFCI": 49.4,
+    "NMFEI": 50.7,
+    "NMFNOI": 49.4,
+    "NMFPRI": 72.7
+  },
+  "2008-04-01": {
+    "NAPM": 48.5,
+    "NAPMEI": 45.4,
+    "NAPMNOI": 46.2,
+    "NAPMPRI": 83.9,
+    "NMFCI": 51.9,
+    "NMFEI": 47.6,
+    "NMFNOI": 49.9,
+    "NMFPRI": 71.9
+  },
+  "2008-05-01": {
+    "NAPM": 48.9,
+    "NAPMEI": 45.0,
+    "NAPMNOI": 47.9,
+    "NAPMPRI": 88.1,
+    "NMFCI": 51.5,
+    "NMFEI": 43.4,
+    "NMFNOI": 53.9,
+    "NMFPRI": 75.2
+  },
+  "2008-06-01": {
+    "NAPM": 49.9,
+    "NAPMEI": 45.0,
+    "NAPMNOI": 49.5,
+    "NAPMPRI": 91.4,
+    "NMFCI": 48.1,
+    "NMFEI": 46.4,
+    "NMFNOI": 49.0,
+    "NMFPRI": 79.6
+  },
+  "2008-07-01": {
+    "NAPM": 50.8,
+    "NAPMEI": 54.7,
+    "NAPMNOI": 48.4,
+    "NAPMPRI": 90.4,
+    "NMFCI": 50.1,
+    "NMFEI": 45.2,
+    "NMFNOI": 49.4,
+    "NMFPRI": 77.4
+  },
+  "2008-08-01": {
+    "NAPM": 50.1,
+    "NAPMEI": 50.2,
+    "NAPMNOI": 48.6,
+    "NAPMPRI": 76.5,
+    "NMFCI": 50.6,
+    "NMFEI": 44.1,
+    "NMFNOI": 50.5,
+    "NMFPRI": 72.4
+  },
+  "2008-09-01": {
+    "NAPM": 47.2,
+    "NAPMEI": 45.4,
+    "NAPMNOI": 45.1,
+    "NAPMPRI": 55.1,
+    "NMFCI": 49.4,
+    "NMFEI": 42.8,
+    "NMFNOI": 49.5,
+    "NMFPRI": 71.9
+  },
+  "2008-10-01": {
+    "NAPM": 38.2,
+    "NAPMEI": 33.0,
+    "NAPMNOI": 32.0,
+    "NAPMPRI": 39.8,
+    "NMFCI": 44.7,
+    "NMFEI": 32.0,
+    "NMFNOI": 44.2,
+    "NMFPRI": 53.9
+  },
+  "2008-11-01": {
+    "NAPM": 39.0,
+    "NAPMEI": 36.8,
+    "NAPMNOI": 34.5,
+    "NAPMPRI": 28.4,
+    "NMFCI": 37.8,
+    "NMFEI": 34.6,
+    "NMFNOI": 35.4,
+    "NMFPRI": 37.4
+  },
+  "2008-12-01": {
+    "NAPM": 34.5,
+    "NAPMEI": 32.5,
+    "NAPMNOI": 25.9,
+    "NAPMPRI": 17.1,
+    "NMFCI": 40.0,
+    "NMFEI": 35.8,
+    "NMFNOI": 38.7,
+    "NMFPRI": 36.1
+  },
+  "2009-01-01": {
+    "NAPM": 36.4,
+    "NAPMEI": 30.5,
+    "NAPMNOI": 32.5,
+    "NAPMPRI": 29.0,
+    "NMFCI": 43.0,
+    "NMFEI": 36.9,
+    "NMFNOI": 40.6,
+    "NMFPRI": 41.7
+  },
+  "2009-02-01": {
+    "NAPM": 36.6,
+    "NAPMEI": 28.0,
+    "NAPMNOI": 32.7,
+    "NAPMPRI": 29.9,
+    "NMFCI": 41.6,
+    "NMFEI": 31.8,
+    "NMFNOI": 40.6,
+    "NMFPRI": 48.6
+  },
+  "2009-03-01": {
+    "NAPM": 37.2,
+    "NAPMEI": 30.5,
+    "NAPMNOI": 41.3,
+    "NAPMPRI": 31.6,
+    "NMFCI": 40.1,
+    "NMFEI": 37.2,
+    "NMFNOI": 37.2,
+    "NMFPRI": 40.0
+  },
+  "2009-04-01": {
+    "NAPM": 39.9,
+    "NAPMEI": 33.5,
+    "NAPMNOI": 46.0,
+    "NAPMPRI": 31.4,
+    "NMFCI": 43.7,
+    "NMFEI": 38.4,
+    "NMFNOI": 46.8,
+    "NMFPRI": 39.9
+  },
+  "2009-05-01": {
+    "NAPM": 44.1,
+    "NAPMEI": 35.3,
+    "NAPMNOI": 51.0,
+    "NAPMPRI": 45.0,
+    "NMFCI": 44.4,
+    "NMFEI": 41.5,
+    "NMFNOI": 45.9,
+    "NMFPRI": 47.1
+  },
+  "2009-06-01": {
+    "NAPM": 46.3,
+    "NAPMEI": 45.0,
+    "NAPMNOI": 49.0,
+    "NAPMPRI": 47.9,
+    "NMFCI": 46.4,
+    "NMFEI": 41.2,
+    "NMFNOI": 49.4,
+    "NMFPRI": 52.9
+  },
+  "2009-07-01": {
+    "NAPM": 49.7,
+    "NAPMEI": 47.1,
+    "NAPMNOI": 56.6,
+    "NAPMPRI": 52.8,
+    "NMFCI": 47.1,
+    "NMFEI": 43.1,
+    "NMFNOI": 49.8,
+    "NMFPRI": 41.5
+  },
+  "2009-08-01": {
+    "NAPM": 53.4,
+    "NAPMEI": 47.5,
+    "NAPMNOI": 64.1,
+    "NAPMPRI": 62.3,
+    "NMFCI": 48.9,
+    "NMFEI": 44.3,
+    "NMFNOI": 51.5,
+    "NMFPRI": 60.8
+  },
+  "2009-09-01": {
+    "NAPM": 54.9,
+    "NAPMEI": 48.6,
+    "NAPMNOI": 64.7,
+    "NAPMPRI": 63.3,
+    "NMFCI": 50.1,
+    "NMFEI": 42.7,
+    "NMFNOI": 52.7,
+    "NMFPRI": 49.6
+  },
+  "2009-10-01": {
+    "NAPM": 57.6,
+    "NAPMEI": 53.5,
+    "NAPMNOI": 57.7,
+    "NAPMPRI": 64.3,
+    "NMFCI": 51.0,
+    "NMFEI": 43.4,
+    "NMFNOI": 55.7,
+    "NMFPRI": 53.5
+  },
+  "2009-11-01": {
+    "NAPM": 55.4,
+    "NAPMEI": 51.2,
+    "NAPMNOI": 64.2,
+    "NAPMPRI": 55.4,
+    "NMFCI": 49.5,
+    "NMFEI": 44.4,
+    "NMFNOI": 54.6,
+    "NMFPRI": 58.9
+  },
+  "2009-12-01": {
+    "NAPM": 55.8,
+    "NAPMEI": 52.6,
+    "NAPMNOI": 63.8,
+    "NAPMPRI": 63.8,
+    "NMFCI": 49.7,
+    "NMFEI": 44.8,
+    "NMFNOI": 51.5,
+    "NMFPRI": 58.9
+  },
+  "2010-01-01": {
+    "NAPM": 56.3,
+    "NAPMEI": 55.2,
+    "NAPMNOI": 59.9,
+    "NAPMPRI": 68.0,
+    "NMFCI": 50.0,
+    "NMFEI": 46.7,
+    "NMFNOI": 52.9,
+    "NMFPRI": 59.4
+  },
+  "2010-02-01": {
+    "NAPM": 55.5,
+    "NAPMEI": 55.7,
+    "NAPMNOI": 57.7,
+    "NAPMPRI": 65.1,
+    "NMFCI": 51.7,
+    "NMFEI": 47.8,
+    "NMFNOI": 53.4,
+    "NMFPRI": 58.7
+  },
+  "2010-03-01": {
+    "NAPM": 58.8,
+    "NAPMEI": 55.8,
+    "NAPMNOI": 60.1,
+    "NAPMPRI": 75.2,
+    "NMFCI": 53.3,
+    "NMFEI": 49.9,
+    "NMFNOI": 58.1,
+    "NMFPRI": 60.9
+  },
+  "2010-04-01": {
+    "NAPM": 58.1,
+    "NAPMEI": 54.8,
+    "NAPMNOI": 64.0,
+    "NAPMPRI": 78.0,
+    "NMFCI": 55.3,
+    "NMFEI": 49.9,
+    "NMFNOI": 58.0,
+    "NMFPRI": 63.8
+  },
+  "2010-05-01": {
+    "NAPM": 57.4,
+    "NAPMEI": 57.9,
+    "NAPMNOI": 61.3,
+    "NAPMPRI": 77.0,
+    "NMFCI": 55.5,
+    "NMFEI": 48.8,
+    "NMFNOI": 57.9,
+    "NMFPRI": 60.8
+  },
+  "2010-06-01": {
+    "NAPM": 56.5,
+    "NAPMEI": 56.8,
+    "NAPMNOI": 58.6,
+    "NAPMPRI": 54.9,
+    "NMFCI": 54.4,
+    "NMFEI": 50.9,
+    "NMFNOI": 56.6,
+    "NMFPRI": 56.7
+  },
+  "2010-07-01": {
+    "NAPM": 56.1,
+    "NAPMEI": 58.6,
+    "NAPMNOI": 54.7,
+    "NAPMPRI": 55.6,
+    "NMFCI": 54.6,
+    "NMFEI": 48.7,
+    "NMFNOI": 58.2,
+    "NMFPRI": 56.1
+  },
+  "2010-08-01": {
+    "NAPM": 56.4,
+    "NAPMEI": 61.2,
+    "NAPMNOI": 54.0,
+    "NAPMPRI": 61.8,
+    "NMFCI": 52.4,
+    "NMFEI": 51.0,
+    "NMFNOI": 54.3,
+    "NMFPRI": 59.2
+  },
+  "2010-09-01": {
+    "NAPM": 55.3,
+    "NAPMEI": 58.0,
+    "NAPMNOI": 51.9,
+    "NAPMPRI": 69.8,
+    "NMFCI": 53.3,
+    "NMFEI": 51.9,
+    "NMFNOI": 54.2,
+    "NMFPRI": 59.5
+  },
+  "2010-10-01": {
+    "NAPM": 56.9,
+    "NAPMEI": 57.5,
+    "NAPMNOI": 57.8,
+    "NAPMPRI": 73.8,
+    "NMFCI": 55.3,
+    "NMFEI": 55.6,
+    "NMFNOI": 58.4,
+    "NMFPRI": 68.2
+  },
+  "2010-11-01": {
+    "NAPM": 57.3,
+    "NAPMEI": 60.2,
+    "NAPMNOI": 58.3,
+    "NAPMPRI": 69.0,
+    "NMFCI": 56.4,
+    "NMFEI": 51.5,
+    "NMFNOI": 58.4,
+    "NMFPRI": 65.6
+  },
+  "2010-12-01": {
+    "NAPM": 56.6,
+    "NAPMEI": 56.7,
+    "NAPMNOI": 59.6,
+    "NAPMPRI": 73.3,
+    "NMFCI": 56.9,
+    "NMFEI": 52.1,
+    "NMFNOI": 62.2,
+    "NMFPRI": 69.3
+  },
+  "2011-01-01": {
+    "NAPM": 59.1,
+    "NAPMEI": 61.6,
+    "NAPMNOI": 64.5,
+    "NAPMPRI": 79.6,
+    "NMFCI": 57.6,
+    "NMFEI": 54.2,
+    "NMFNOI": 63.0,
+    "NMFPRI": 70.0
+  },
+  "2011-02-01": {
+    "NAPM": 59.2,
+    "NAPMEI": 62.3,
+    "NAPMNOI": 64.2,
+    "NAPMPRI": 80.2,
+    "NMFCI": 58.0,
+    "NMFEI": 53.3,
+    "NMFNOI": 61.9,
+    "NMFPRI": 70.9
+  },
+  "2011-03-01": {
+    "NAPM": 58.4,
+    "NAPMEI": 60.5,
+    "NAPMNOI": 61.3,
+    "NAPMPRI": 82.3,
+    "NMFCI": 55.8,
+    "NMFEI": 54.3,
+    "NMFNOI": 59.6,
+    "NMFPRI": 70.9
+  },
+  "2011-04-01": {
+    "NAPM": 57.9,
+    "NAPMEI": 59.2,
+    "NAPMNOI": 61.1,
+    "NAPMPRI": 82.6,
+    "NMFCI": 55.2,
+    "NMFEI": 55.1,
+    "NMFNOI": 56.3,
+    "NMFPRI": 71.0
+  },
+  "2011-05-01": {
+    "NAPM": 54.8,
+    "NAPMEI": 58.1,
+    "NAPMNOI": 54.6,
+    "NAPMPRI": 77.9,
+    "NMFCI": 55.0,
+    "NMFEI": 53.1,
+    "NMFNOI": 56.0,
+    "NMFPRI": 70.3
+  },
+  "2011-06-01": {
+    "NAPM": 55.8,
+    "NAPMEI": 62.1,
+    "NAPMNOI": 54.6,
+    "NAPMPRI": 70.3,
+    "NMFCI": 54.2,
+    "NMFEI": 53.4,
+    "NMFNOI": 55.4,
+    "NMFPRI": 62.4
+  },
+  "2011-07-01": {
+    "NAPM": 52.9,
+    "NAPMEI": 53.2,
+    "NAPMNOI": 56.9,
+    "NAPMPRI": 59.1,
+    "NMFCI": 53.5,
+    "NMFEI": 51.5,
+    "NMFNOI": 53.7,
+    "NMFPRI": 60.7
+  },
+  "2011-08-01": {
+    "NAPM": 52.6,
+    "NAPMEI": 51.8,
+    "NAPMNOI": 52.9,
+    "NAPMPRI": 57.5,
+    "NMFCI": 53.5,
+    "NMFEI": 48.8,
+    "NMFNOI": 53.9,
+    "NMFPRI": 61.3
+  },
+  "2011-09-01": {
+    "NAPM": 53.7,
+    "NAPMEI": 56.6,
+    "NAPMNOI": 51.8,
+    "NAPMPRI": 57.0,
+    "NMFCI": 52.3,
+    "NMFEI": 51.8,
+    "NMFNOI": 54.6,
+    "NMFPRI": 60.9
+  },
+  "2011-10-01": {
+    "NAPM": 51.4,
+    "NAPMEI": 53.0,
+    "NAPMNOI": 52.0,
+    "NAPMPRI": 41.4,
+    "NMFCI": 52.8,
+    "NMFEI": 52.5,
+    "NMFNOI": 53.4,
+    "NMFPRI": 57.7
+  },
+  "2011-11-01": {
+    "NAPM": 51.8,
+    "NAPMEI": 51.3,
+    "NAPMNOI": 54.9,
+    "NAPMPRI": 48.1,
+    "NMFCI": 52.9,
+    "NMFEI": 48.5,
+    "NMFNOI": 53.4,
+    "NMFPRI": 63.4
+  },
+  "2011-12-01": {
+    "NAPM": 53.0,
+    "NAPMEI": 54.9,
+    "NAPMNOI": 55.4,
+    "NAPMPRI": 45.4,
+    "NMFCI": 52.6,
+    "NMFEI": 54.2,
+    "NMFNOI": 54.2,
+    "NMFPRI": 62.2
+  },
+  "2012-01-01": {
+    "NAPM": 54.2,
+    "NAPMEI": 52.9,
+    "NAPMNOI": 60.0,
+    "NAPMPRI": 53.5,
+    "NMFCI": 57.3,
+    "NMFEI": 53.9,
+    "NMFNOI": 62.8,
+    "NMFPRI": 63.8
+  },
+  "2012-02-01": {
+    "NAPM": 53.3,
+    "NAPMEI": 53.7,
+    "NAPMNOI": 58.3,
+    "NAPMPRI": 60.1,
+    "NMFCI": 55.9,
+    "NMFEI": 55.5,
+    "NMFNOI": 59.5,
+    "NMFPRI": 65.4
+  },
+  "2012-03-01": {
+    "NAPM": 53.5,
+    "NAPMEI": 55.6,
+    "NAPMNOI": 57.0,
+    "NAPMPRI": 62.3,
+    "NMFCI": 55.6,
+    "NMFEI": 56.2,
+    "NMFNOI": 58.2,
+    "NMFPRI": 63.7
+  },
+  "2012-04-01": {
+    "NAPM": 55.2,
+    "NAPMEI": 56.1,
+    "NAPMNOI": 59.2,
+    "NAPMPRI": 61.0,
+    "NMFCI": 55.3,
+    "NMFEI": 55.1,
+    "NMFNOI": 56.6,
+    "NMFPRI": 58.7
+  },
+  "2012-05-01": {
+    "NAPM": 53.2,
+    "NAPMEI": 54.8,
+    "NAPMNOI": 58.2,
+    "NAPMPRI": 47.2,
+    "NMFCI": 55.1,
+    "NMFEI": 52.9,
+    "NMFNOI": 56.3,
+    "NMFPRI": 54.0
+  },
+  "2012-06-01": {
+    "NAPM": 49.5,
+    "NAPMEI": 55.1,
+    "NAPMNOI": 47.3,
+    "NAPMPRI": 35.7,
+    "NMFCI": 53.6,
+    "NMFEI": 51.1,
+    "NMFNOI": 54.3,
+    "NMFPRI": 48.5
+  },
+  "2012-07-01": {
+    "NAPM": 49.6,
+    "NAPMEI": 51.3,
+    "NAPMNOI": 47.8,
+    "NAPMPRI": 39.4,
+    "NMFCI": 52.1,
+    "NMFEI": 52.0,
+    "NMFNOI": 52.9,
+    "NMFPRI": 52.8
+  },
+  "2012-08-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 50.4,
+    "NAPMNOI": 45.1,
+    "NAPMPRI": 54.4,
+    "NMFCI": 52.1,
+    "NMFEI": 52.1,
+    "NMFNOI": 52.8,
+    "NMFPRI": 62.1
+  },
+  "2012-09-01": {
+    "NAPM": 50.8,
+    "NAPMEI": 52.4,
+    "NAPMNOI": 52.2,
+    "NAPMPRI": 60.0,
+    "NMFCI": 53.8,
+    "NMFEI": 51.6,
+    "NMFNOI": 53.7,
+    "NMFPRI": 65.0
+  },
+  "2012-10-01": {
+    "NAPM": 50.5,
+    "NAPMEI": 52.8,
+    "NAPMNOI": 51.8,
+    "NAPMPRI": 55.5,
+    "NMFCI": 54.3,
+    "NMFEI": 52.8,
+    "NMFNOI": 56.5,
+    "NMFPRI": 60.9
+  },
+  "2012-11-01": {
+    "NAPM": 48.0,
+    "NAPMEI": 47.3,
+    "NAPMNOI": 47.9,
+    "NAPMPRI": 52.1,
+    "NMFCI": 53.9,
+    "NMFEI": 53.8,
+    "NMFNOI": 56.3,
+    "NMFPRI": 58.3
+  },
+  "2012-12-01": {
+    "NAPM": 50.1,
+    "NAPMEI": 52.5,
+    "NAPMNOI": 48.3,
+    "NAPMPRI": 54.0,
+    "NMFCI": 55.7,
+    "NMFEI": 55.3,
+    "NMFNOI": 58.9,
+    "NMFPRI": 58.3
+  },
+  "2013-01-01": {
+    "NAPM": 53.3,
+    "NAPMEI": 53.0,
+    "NAPMNOI": 54.9,
+    "NAPMPRI": 56.9,
+    "NMFCI": 55.9,
+    "NMFEI": 56.6,
+    "NMFNOI": 58.5,
+    "NMFPRI": 60.0
+  },
+  "2013-02-01": {
+    "NAPM": 54.2,
+    "NAPMEI": 53.2,
+    "NAPMNOI": 58.9,
+    "NAPMPRI": 62.2,
+    "NMFCI": 56.6,
+    "NMFEI": 53.6,
+    "NMFNOI": 60.0,
+    "NMFPRI": 59.9
+  },
+  "2013-03-01": {
+    "NAPM": 51.9,
+    "NAPMEI": 53.3,
+    "NAPMNOI": 52.3,
+    "NAPMPRI": 53.7,
+    "NMFCI": 55.9,
+    "NMFEI": 54.2,
+    "NMFNOI": 57.8,
+    "NMFPRI": 55.6
+  },
+  "2013-04-01": {
+    "NAPM": 51.0,
+    "NAPMEI": 50.7,
+    "NAPMNOI": 53.0,
+    "NAPMPRI": 48.5,
+    "NMFCI": 54.3,
+    "NMFEI": 53.2,
+    "NMFNOI": 56.1,
+    "NMFPRI": 53.8
+  },
+  "2013-05-01": {
+    "NAPM": 50.8,
+    "NAPMEI": 50.3,
+    "NAPMNOI": 52.1,
+    "NAPMPRI": 49.9,
+    "NMFCI": 54.8,
+    "NMFEI": 55.3,
+    "NMFNOI": 56.7,
+    "NMFPRI": 53.0
+  },
+  "2013-06-01": {
+    "NAPM": 51.1,
+    "NAPMEI": 49.6,
+    "NAPMNOI": 52.0,
+    "NAPMPRI": 50.7,
+    "NMFCI": 53.6,
+    "NMFEI": 54.4,
+    "NMFNOI": 52.9,
+    "NMFPRI": 53.7
+  },
+  "2013-07-01": {
+    "NAPM": 53.8,
+    "NAPMEI": 52.1,
+    "NAPMNOI": 56.4,
+    "NAPMPRI": 48.4,
+    "NMFCI": 55.2,
+    "NMFEI": 55.2,
+    "NMFNOI": 54.6,
+    "NMFPRI": 55.3
+  },
+  "2013-08-01": {
+    "NAPM": 54.0,
+    "NAPMEI": 53.5,
+    "NAPMNOI": 58.0,
+    "NAPMPRI": 52.8,
+    "NMFCI": 55.3,
+    "NMFEI": 52.3,
+    "NMFNOI": 55.5,
+    "NMFPRI": 53.5
+  },
+  "2013-09-01": {
+    "NAPM": 54.6,
+    "NAPMEI": 52.8,
+    "NAPMNOI": 60.2,
+    "NAPMPRI": 57.4,
+    "NMFCI": 53.6,
+    "NMFEI": 53.0,
+    "NMFNOI": 57.0,
+    "NMFPRI": 56.4
+  },
+  "2013-10-01": {
+    "NAPM": 54.6,
+    "NAPMEI": 53.2,
+    "NAPMNOI": 57.4,
+    "NAPMPRI": 55.0,
+    "NMFCI": 53.9,
+    "NMFEI": 53.5,
+    "NMFNOI": 56.1,
+    "NMFPRI": 56.2
+  },
+  "2013-11-01": {
+    "NAPM": 55.5,
+    "NAPMEI": 54.4,
+    "NAPMNOI": 59.5,
+    "NAPMPRI": 51.7,
+    "NMFCI": 53.1,
+    "NMFEI": 54.3,
+    "NMFNOI": 54.4,
+    "NMFPRI": 53.2
+  },
+  "2013-12-01": {
+    "NAPM": 56.5,
+    "NAPMEI": 53.0,
+    "NAPMNOI": 63.9,
+    "NAPMPRI": 51.7,
+    "NMFCI": 53.5,
+    "NMFEI": 56.5,
+    "NMFNOI": 51.6,
+    "NMFPRI": 56.9
+  },
+  "2014-01-01": {
+    "NAPM": 52.5,
+    "NAPMEI": 53.3,
+    "NAPMNOI": 54.6,
+    "NAPMPRI": 60.3,
+    "NMFCI": 55.2,
+    "NMFEI": 48.7,
+    "NMFNOI": 54.1,
+    "NMFPRI": 60.0
+  },
+  "2014-02-01": {
+    "NAPM": 55.0,
+    "NAPMEI": 54.6,
+    "NAPMNOI": 58.6,
+    "NAPMPRI": 59.8,
+    "NMFCI": 53.4,
+    "NMFEI": 54.5,
+    "NMFNOI": 54.9,
+    "NMFPRI": 56.4
+  },
+  "2014-03-01": {
+    "NAPM": 55.9,
+    "NAPMEI": 54.0,
+    "NAPMNOI": 58.8,
+    "NAPMPRI": 59.0,
+    "NMFCI": 54.9,
+    "NMFEI": 53.1,
+    "NMFNOI": 56.0,
+    "NMFPRI": 58.1
+  },
+  "2014-04-01": {
+    "NAPM": 56.6,
+    "NAPMEI": 57.5,
+    "NAPMNOI": 57.3,
+    "NAPMPRI": 55.9,
+    "NMFCI": 55.7,
+    "NMFEI": 55.2,
+    "NMFNOI": 58.7,
+    "NMFPRI": 61.0
+  },
+  "2014-05-01": {
+    "NAPM": 55.7,
+    "NAPMEI": 55.1,
+    "NAPMNOI": 57.9,
+    "NAPMPRI": 58.7,
+    "NMFCI": 56.0,
+    "NMFEI": 54.7,
+    "NMFNOI": 58.8,
+    "NMFPRI": 58.5
+  },
+  "2014-06-01": {
+    "NAPM": 55.0,
+    "NAPMEI": 53.4,
+    "NAPMNOI": 56.8,
+    "NAPMPRI": 57.0,
+    "NMFCI": 56.8,
+    "NMFEI": 56.2,
+    "NMFNOI": 61.1,
+    "NMFPRI": 58.6
+  },
+  "2014-07-01": {
+    "NAPM": 55.1,
+    "NAPMEI": 55.1,
+    "NAPMNOI": 57.4,
+    "NAPMPRI": 60.1,
+    "NMFCI": 56.9,
+    "NMFEI": 56.4,
+    "NMFNOI": 60.4,
+    "NMFPRI": 58.1
+  },
+  "2014-08-01": {
+    "NAPM": 56.3,
+    "NAPMEI": 56.9,
+    "NAPMNOI": 60.1,
+    "NAPMPRI": 56.9,
+    "NMFCI": 58.0,
+    "NMFEI": 55.9,
+    "NMFNOI": 61.1,
+    "NMFPRI": 57.7
+  },
+  "2014-09-01": {
+    "NAPM": 55.7,
+    "NAPMEI": 54.1,
+    "NAPMNOI": 58.9,
+    "NAPMPRI": 58.7,
+    "NMFCI": 57.3,
+    "NMFEI": 56.2,
+    "NMFNOI": 59.5,
+    "NMFPRI": 55.1
+  },
+  "2014-10-01": {
+    "NAPM": 56.2,
+    "NAPMEI": 53.8,
+    "NAPMNOI": 59.8,
+    "NAPMPRI": 52.7,
+    "NMFCI": 55.8,
+    "NMFEI": 55.2,
+    "NMFNOI": 58.6,
+    "NMFPRI": 52.0
+  },
+  "2014-11-01": {
+    "NAPM": 56.3,
+    "NAPMEI": 53.7,
+    "NAPMNOI": 61.6,
+    "NAPMPRI": 44.4,
+    "NMFCI": 58.2,
+    "NMFEI": 54.8,
+    "NMFNOI": 61.1,
+    "NMFPRI": 54.5
+  },
+  "2014-12-01": {
+    "NAPM": 55.7,
+    "NAPMEI": 57.2,
+    "NAPMNOI": 58.2,
+    "NAPMPRI": 37.8,
+    "NMFCI": 57.2,
+    "NMFEI": 52.0,
+    "NMFNOI": 60.2,
+    "NMFPRI": 51.1
+  },
+  "2015-01-01": {
+    "NAPM": 54.0,
+    "NAPMEI": 55.0,
+    "NAPMNOI": 54.7,
+    "NAPMPRI": 35.1,
+    "NMFCI": 56.2,
+    "NMFEI": 57.4,
+    "NMFNOI": 59.0,
+    "NMFPRI": 47.3
+  },
+  "2015-02-01": {
+    "NAPM": 53.1,
+    "NAPMEI": 51.8,
+    "NAPMNOI": 54.3,
+    "NAPMPRI": 35.2,
+    "NMFCI": 57.6,
+    "NMFEI": 57.8,
+    "NMFNOI": 58.0,
+    "NMFPRI": 50.9
+  },
+  "2015-03-01": {
+    "NAPM": 52.3,
+    "NAPMEI": 51.3,
+    "NAPMNOI": 53.1,
+    "NAPMPRI": 40.1,
+    "NMFCI": 58.4,
+    "NMFEI": 58.0,
+    "NMFNOI": 60.6,
+    "NMFPRI": 53.6
+  },
+  "2015-04-01": {
+    "NAPM": 52.1,
+    "NAPMEI": 50.4,
+    "NAPMNOI": 53.7,
+    "NAPMPRI": 41.6,
+    "NMFCI": 57.5,
+    "NMFEI": 57.2,
+    "NMFNOI": 58.1,
+    "NMFPRI": 50.4
+  },
+  "2015-05-01": {
+    "NAPM": 52.7,
+    "NAPMEI": 52.8,
+    "NAPMNOI": 52.8,
+    "NAPMPRI": 49.0,
+    "NMFCI": 56.7,
+    "NMFEI": 53.0,
+    "NMFNOI": 58.9,
+    "NMFPRI": 53.7
+  },
+  "2015-06-01": {
+    "NAPM": 52.6,
+    "NAPMEI": 54.6,
+    "NAPMNOI": 53.8,
+    "NAPMPRI": 49.7,
+    "NMFCI": 55.7,
+    "NMFEI": 59.4,
+    "NMFNOI": 57.7,
+    "NMFPRI": 52.3
+  },
+  "2015-07-01": {
+    "NAPM": 51.9,
+    "NAPMEI": 51.7,
+    "NAPMNOI": 52.6,
+    "NAPMPRI": 45.1,
+    "NMFCI": 60.1,
+    "NMFEI": 56.2,
+    "NMFNOI": 62.8,
+    "NMFPRI": 52.5
+  },
+  "2015-08-01": {
+    "NAPM": 50.0,
+    "NAPMEI": 48.6,
+    "NAPMNOI": 51.2,
+    "NAPMPRI": 38.8,
+    "NMFCI": 58.6,
+    "NMFEI": 55.5,
+    "NMFNOI": 62.5,
+    "NMFPRI": 51.1
+  },
+  "2015-09-01": {
+    "NAPM": 50.0,
+    "NAPMEI": 49.6,
+    "NAPMNOI": 50.2,
+    "NAPMPRI": 37.6,
+    "NMFCI": 56.1,
+    "NMFEI": 56.8,
+    "NMFNOI": 56.6,
+    "NMFPRI": 48.4
+  },
+  "2015-10-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 45.3,
+    "NAPMNOI": 51.7,
+    "NAPMPRI": 39.8,
+    "NMFCI": 56.9,
+    "NMFEI": 53.6,
+    "NMFNOI": 59.2,
+    "NMFPRI": 48.3
+  },
+  "2015-11-01": {
+    "NAPM": 49.1,
+    "NAPMEI": 51.0,
+    "NAPMNOI": 50.6,
+    "NAPMPRI": 35.7,
+    "NMFCI": 56.1,
+    "NMFEI": 55.1,
+    "NMFNOI": 59.3,
+    "NMFPRI": 48.8
+  },
+  "2015-12-01": {
+    "NAPM": 48.8,
+    "NAPMEI": 46.7,
+    "NAPMNOI": 49.5,
+    "NAPMPRI": 33.9,
+    "NMFCI": 55.3,
+    "NMFEI": 52.0,
+    "NMFNOI": 58.2,
+    "NMFPRI": 50.6
+  },
+  "2016-01-01": {
+    "NAPM": 47.5,
+    "NAPMEI": 44.5,
+    "NAPMNOI": 49.6,
+    "NAPMPRI": 33.9,
+    "NMFCI": 53.8,
+    "NMFEI": 51.4,
+    "NMFNOI": 56.9,
+    "NMFPRI": 47.0
+  },
+  "2016-02-01": {
+    "NAPM": 49.2,
+    "NAPMEI": 47.5,
+    "NAPMNOI": 52.4,
+    "NAPMPRI": 38.3,
+    "NMFCI": 52.8,
+    "NMFEI": 52.3,
+    "NMFNOI": 53.3,
+    "NMFPRI": 45.9
+  },
+  "2016-03-01": {
+    "NAPM": 51.4,
+    "NAPMEI": 47.6,
+    "NAPMNOI": 55.4,
+    "NAPMPRI": 52.1,
+    "NMFCI": 55.4,
+    "NMFEI": 55.1,
+    "NMFNOI": 58.0,
+    "NMFPRI": 50.6
+  },
+  "2016-04-01": {
+    "NAPM": 51.0,
+    "NAPMEI": 50.3,
+    "NAPMNOI": 54.8,
+    "NAPMPRI": 57.9,
+    "NMFCI": 55.2,
+    "NMFEI": 50.7,
+    "NMFNOI": 57.1,
+    "NMFPRI": 53.9
+  },
+  "2016-05-01": {
+    "NAPM": 51.3,
+    "NAPMEI": 49.1,
+    "NAPMNOI": 55.4,
+    "NAPMPRI": 61.4,
+    "NMFCI": 54.1,
+    "NMFEI": 52.7,
+    "NMFNOI": 56.8,
+    "NMFPRI": 55.0
+  },
+  "2016-06-01": {
+    "NAPM": 52.4,
+    "NAPMEI": 49.4,
+    "NAPMNOI": 56.9,
+    "NAPMPRI": 59.8,
+    "NMFCI": 55.8,
+    "NMFEI": 51.7,
+    "NMFNOI": 58.5,
+    "NMFPRI": 55.9
+  },
+  "2016-07-01": {
+    "NAPM": 52.4,
+    "NAPMEI": 49.4,
+    "NAPMNOI": 55.3,
+    "NAPMPRI": 54.9,
+    "NMFCI": 56.2,
+    "NMFEI": 51.0,
+    "NMFNOI": 60.5,
+    "NMFPRI": 52.6
+  },
+  "2016-08-01": {
+    "NAPM": 49.7,
+    "NAPMEI": 47.5,
+    "NAPMNOI": 50.9,
+    "NAPMPRI": 53.6,
+    "NMFCI": 52.6,
+    "NMFEI": 54.2,
+    "NMFNOI": 53.4,
+    "NMFPRI": 52.0
+  },
+  "2016-09-01": {
+    "NAPM": 51.0,
+    "NAPMEI": 48.9,
+    "NAPMNOI": 53.4,
+    "NAPMPRI": 53.1,
+    "NMFCI": 55.4,
+    "NMFEI": 51.4,
+    "NMFNOI": 58.4,
+    "NMFPRI": 52.8
+  },
+  "2016-10-01": {
+    "NAPM": 51.8,
+    "NAPMEI": 50.9,
+    "NAPMNOI": 54.3,
+    "NAPMPRI": 54.8,
+    "NMFCI": 54.3,
+    "NMFEI": 55.2,
+    "NMFNOI": 57.6,
+    "NMFPRI": 54.8
+  },
+  "2016-11-01": {
+    "NAPM": 53.3,
+    "NAPMEI": 51.4,
+    "NAPMNOI": 55.4,
+    "NAPMPRI": 53.5,
+    "NMFCI": 56.4,
+    "NMFEI": 52.7,
+    "NMFNOI": 58.6,
+    "NMFPRI": 54.6
+  },
+  "2016-12-01": {
+    "NAPM": 54.2,
+    "NAPMEI": 53.2,
+    "NAPMNOI": 58.6,
+    "NAPMPRI": 64.2,
+    "NMFCI": 55.8,
+    "NMFEI": 53.7,
+    "NMFNOI": 58.6,
+    "NMFPRI": 56.3
+  },
+  "2017-01-01": {
+    "NAPM": 55.7,
+    "NAPMEI": 55.3,
+    "NAPMNOI": 60.0,
+    "NAPMPRI": 67.9,
+    "NMFCI": 57.0,
+    "NMFEI": 55.3,
+    "NMFNOI": 60.3,
+    "NMFPRI": 57.2
+  },
+  "2017-02-01": {
+    "NAPM": 57.7,
+    "NAPMEI": 54.4,
+    "NAPMNOI": 64.1,
+    "NAPMPRI": 66.9,
+    "NMFCI": 56.6,
+    "NMFEI": 52.4,
+    "NMFNOI": 58.4,
+    "NMFPRI": 57.9
+  },
+  "2017-03-01": {
+    "NAPM": 56.8,
+    "NAPMEI": 58.8,
+    "NAPMNOI": 62.0,
+    "NAPMPRI": 68.8,
+    "NMFCI": 56.2,
+    "NMFEI": 53.4,
+    "NMFNOI": 60.1,
+    "NMFPRI": 54.4
+  },
+  "2017-04-01": {
+    "NAPM": 55.7,
+    "NAPMEI": 54.3,
+    "NAPMNOI": 57.4,
+    "NAPMPRI": 68.3,
+    "NMFCI": 57.2,
+    "NMFEI": 57.3,
+    "NMFNOI": 61.1,
+    "NMFPRI": 58.3
+  },
+  "2017-05-01": {
+    "NAPM": 56.4,
+    "NAPMEI": 53.9,
+    "NAPMNOI": 61.6,
+    "NAPMPRI": 59.5,
+    "NMFCI": 57.4,
+    "NMFEI": 56.3,
+    "NMFNOI": 59.7,
+    "NMFPRI": 49.6
+  },
+  "2017-06-01": {
+    "NAPM": 56.1,
+    "NAPMEI": 56.2,
+    "NAPMNOI": 60.3,
+    "NAPMPRI": 53.0,
+    "NMFCI": 56.8,
+    "NMFEI": 54.4,
+    "NMFNOI": 59.4,
+    "NMFPRI": 53.6
+  },
+  "2017-07-01": {
+    "NAPM": 56.5,
+    "NAPMEI": 55.4,
+    "NAPMNOI": 61.6,
+    "NAPMPRI": 61.7,
+    "NMFCI": 55.4,
+    "NMFEI": 56.5,
+    "NMFNOI": 57.3,
+    "NMFPRI": 56.3
+  },
+  "2017-08-01": {
+    "NAPM": 58.5,
+    "NAPMEI": 59.3,
+    "NAPMNOI": 60.9,
+    "NAPMPRI": 61.7,
+    "NMFCI": 55.8,
+    "NMFEI": 54.4,
+    "NMFNOI": 58.2,
+    "NMFPRI": 58.0
+  },
+  "2017-09-01": {
+    "NAPM": 59.9,
+    "NAPMEI": 58.2,
+    "NAPMNOI": 64.2,
+    "NAPMPRI": 71.5,
+    "NMFCI": 58.1,
+    "NMFEI": 56.2,
+    "NMFNOI": 60.7,
+    "NMFPRI": 64.7
+  },
+  "2017-10-01": {
+    "NAPM": 58.6,
+    "NAPMEI": 59.1,
+    "NAPMNOI": 64.0,
+    "NAPMPRI": 68.1,
+    "NMFCI": 60.4,
+    "NMFEI": 55.1,
+    "NMFNOI": 64.8,
+    "NMFPRI": 61.1
+  },
+  "2017-11-01": {
+    "NAPM": 57.9,
+    "NAPMEI": 58.2,
+    "NAPMNOI": 64.0,
+    "NAPMPRI": 64.8,
+    "NMFCI": 57.1,
+    "NMFEI": 56.4,
+    "NMFNOI": 59.0,
+    "NMFPRI": 59.2
+  },
+  "2017-12-01": {
+    "NAPM": 59.2,
+    "NAPMEI": 58.3,
+    "NAPMNOI": 65.7,
+    "NAPMPRI": 68.3,
+    "NMFCI": 56.3,
+    "NMFEI": 60.3,
+    "NMFNOI": 54.2,
+    "NMFPRI": 61.2
+  },
+  "2018-01-01": {
+    "NAPM": 59.4,
+    "NAPMEI": 54.9,
+    "NAPMNOI": 66.2,
+    "NAPMPRI": 72.7,
+    "NMFCI": 60.0,
+    "NMFEI": 55.6,
+    "NMFNOI": 63.4,
+    "NMFPRI": 61.7
+  },
+  "2018-02-01": {
+    "NAPM": 60.8,
+    "NAPMEI": 59.8,
+    "NAPMNOI": 64.1,
+    "NAPMPRI": 74.2,
+    "NMFCI": 58.5,
+    "NMFEI": 56.5,
+    "NMFNOI": 61.1,
+    "NMFPRI": 62.4
+  },
+  "2018-03-01": {
+    "NAPM": 59.2,
+    "NAPMEI": 57.3,
+    "NAPMNOI": 61.7,
+    "NAPMPRI": 78.1,
+    "NMFCI": 58.2,
+    "NMFEI": 55.1,
+    "NMFNOI": 58.1,
+    "NMFPRI": 61.5
+  },
+  "2018-04-01": {
+    "NAPM": 58.6,
+    "NAPMEI": 56.1,
+    "NAPMNOI": 63.2,
+    "NAPMPRI": 79.3,
+    "NMFCI": 57.6,
+    "NMFEI": 54.1,
+    "NMFNOI": 60.6,
+    "NMFPRI": 62.3
+  },
+  "2018-05-01": {
+    "NAPM": 58.9,
+    "NAPMEI": 57.2,
+    "NAPMNOI": 63.2,
+    "NAPMPRI": 79.5,
+    "NMFCI": 58.0,
+    "NMFEI": 54.5,
+    "NMFNOI": 60.2,
+    "NMFPRI": 63.9
+  },
+  "2018-06-01": {
+    "NAPM": 59.7,
+    "NAPMEI": 55.4,
+    "NAPMNOI": 63.5,
+    "NAPMPRI": 76.8,
+    "NMFCI": 58.5,
+    "NMFEI": 56.7,
+    "NMFNOI": 61.6,
+    "NMFPRI": 61.1
+  },
+  "2018-07-01": {
+    "NAPM": 58.0,
+    "NAPMEI": 56.0,
+    "NAPMNOI": 59.8,
+    "NAPMPRI": 73.2,
+    "NMFCI": 57.5,
+    "NMFEI": 57.2,
+    "NMFNOI": 60.7,
+    "NMFPRI": 63.4
+  },
+  "2018-08-01": {
+    "NAPM": 60.4,
+    "NAPMEI": 57.9,
+    "NAPMNOI": 63.6,
+    "NAPMPRI": 72.1,
+    "NMFCI": 59.5,
+    "NMFEI": 60.1,
+    "NMFNOI": 62.8,
+    "NMFPRI": 62.3
+  },
+  "2018-09-01": {
+    "NAPM": 59.5,
+    "NAPMEI": 58.2,
+    "NAPMNOI": 61.9,
+    "NAPMPRI": 66.9,
+    "NMFCI": 60.4,
+    "NMFEI": 58.9,
+    "NMFNOI": 60.9,
+    "NMFPRI": 62.8
+  },
+  "2018-10-01": {
+    "NAPM": 58.3,
+    "NAPMEI": 55.9,
+    "NAPMNOI": 59.3,
+    "NAPMPRI": 71.6,
+    "NMFCI": 60.8,
+    "NMFEI": 57.8,
+    "NMFNOI": 63.2,
+    "NMFPRI": 61.1
+  },
+  "2018-11-01": {
+    "NAPM": 58.7,
+    "NAPMEI": 57.5,
+    "NAPMNOI": 60.7,
+    "NAPMPRI": 60.7,
+    "NMFCI": 60.1,
+    "NMFEI": 56.5,
+    "NMFNOI": 62.1,
+    "NMFPRI": 62.9
+  },
+  "2018-12-01": {
+    "NAPM": 54.8,
+    "NAPMEI": 56.3,
+    "NAPMNOI": 52.4,
+    "NAPMPRI": 54.9,
+    "NMFCI": 58.1,
+    "NMFEI": 57.4,
+    "NMFNOI": 62.6,
+    "NMFPRI": 59.1
+  },
+  "2019-01-01": {
+    "NAPM": 55.7,
+    "NAPMEI": 55.5,
+    "NAPMNOI": 56.7,
+    "NAPMPRI": 49.6,
+    "NMFCI": 56.5,
+    "NMFEI": 55.8,
+    "NMFNOI": 58.7,
+    "NMFPRI": 59.1
+  },
+  "2019-02-01": {
+    "NAPM": 54.2,
+    "NAPMEI": 53.1,
+    "NAPMNOI": 54.9,
+    "NAPMPRI": 49.4,
+    "NMFCI": 59.1,
+    "NMFEI": 55.8,
+    "NMFNOI": 62.1,
+    "NMFPRI": 55.8
+  },
+  "2019-03-01": {
+    "NAPM": 55.3,
+    "NAPMEI": 57.9,
+    "NAPMNOI": 56.5,
+    "NAPMPRI": 54.3,
+    "NMFCI": 56.5,
+    "NMFEI": 53.6,
+    "NMFNOI": 59.6,
+    "NMFPRI": 58.2
+  },
+  "2019-04-01": {
+    "NAPM": 53.6,
+    "NAPMEI": 53.4,
+    "NAPMNOI": 53.5,
+    "NAPMPRI": 50.0,
+    "NMFCI": 55.3,
+    "NMFEI": 57.0,
+    "NMFNOI": 58.2,
+    "NMFPRI": 56.1
+  },
+  "2019-05-01": {
+    "NAPM": 52.2,
+    "NAPMEI": 54.2,
+    "NAPMNOI": 52.5,
+    "NAPMPRI": 53.2,
+    "NMFCI": 56.1,
+    "NMFEI": 55.2,
+    "NMFNOI": 58.1,
+    "NMFPRI": 55.8
+  },
+  "2019-06-01": {
+    "NAPM": 51.3,
+    "NAPMEI": 53.3,
+    "NAPMNOI": 50.7,
+    "NAPMPRI": 47.9,
+    "NMFCI": 55.2,
+    "NMFEI": 56.5,
+    "NMFNOI": 56.1,
+    "NMFPRI": 58.2
+  },
+  "2019-07-01": {
+    "NAPM": 51.0,
+    "NAPMEI": 50.7,
+    "NAPMNOI": 51.2,
+    "NAPMPRI": 45.1,
+    "NMFCI": 54.4,
+    "NMFEI": 53.6,
+    "NMFNOI": 55.0,
+    "NMFPRI": 56.5
+  },
+  "2019-08-01": {
+    "NAPM": 48.4,
+    "NAPMEI": 47.5,
+    "NAPMNOI": 46.3,
+    "NAPMPRI": 46.0,
+    "NMFCI": 56.0,
+    "NMFEI": 50.1,
+    "NMFNOI": 59.7,
+    "NMFPRI": 58.0
+  },
+  "2019-09-01": {
+    "NAPM": 48.3,
+    "NAPMEI": 46.2,
+    "NAPMNOI": 48.7,
+    "NAPMPRI": 49.7,
+    "NMFCI": 53.2,
+    "NMFEI": 54.7,
+    "NMFNOI": 54.9,
+    "NMFPRI": 59.5
+  },
+  "2019-10-01": {
+    "NAPM": 48.3,
+    "NAPMEI": 47.0,
+    "NAPMNOI": 48.5,
+    "NAPMPRI": 45.5,
+    "NMFCI": 54.8,
+    "NMFEI": 55.1,
+    "NMFNOI": 56.0,
+    "NMFPRI": 56.4
+  },
+  "2019-11-01": {
+    "NAPM": 48.2,
+    "NAPMEI": 46.5,
+    "NAPMNOI": 47.0,
+    "NAPMPRI": 46.7,
+    "NMFCI": 53.6,
+    "NMFEI": 55.2,
+    "NMFNOI": 55.6,
+    "NMFPRI": 57.0
+  },
+  "2019-12-01": {
+    "NAPM": 47.7,
+    "NAPMEI": 45.4,
+    "NAPMNOI": 47.5,
+    "NAPMPRI": 51.7,
+    "NMFCI": 55.7,
+    "NMFEI": 54.0,
+    "NMFNOI": 56.7,
+    "NMFPRI": 59.8
+  },
+  "2020-01-01": {
+    "NAPM": 51.1,
+    "NAPMEI": 46.8,
+    "NAPMNOI": 51.8,
+    "NAPMPRI": 53.3,
+    "NMFCI": 56.0,
+    "NMFEI": 56.2,
+    "NMFNOI": 56.7,
+    "NMFPRI": 56.5
+  },
+  "2020-02-01": {
+    "NAPM": 50.3,
+    "NAPMEI": 46.9,
+    "NAPMNOI": 49.5,
+    "NAPMPRI": 45.9,
+    "NMFCI": 57.5,
+    "NMFEI": 46.5,
+    "NMFNOI": 60.9,
+    "NMFPRI": 52.5
+  },
+  "2020-03-01": {
+    "NAPM": 49.7,
+    "NAPMEI": 44.6,
+    "NAPMNOI": 43.2,
+    "NAPMPRI": 37.4,
+    "NMFCI": 52.9,
+    "NMFEI": 29.3,
+    "NMFNOI": 54.1,
+    "NMFPRI": 50.4
+  },
+  "2020-04-01": {
+    "NAPM": 41.7,
+    "NAPMEI": 28.2,
+    "NAPMNOI": 27.3,
+    "NAPMPRI": 35.3,
+    "NMFCI": 41.7,
+    "NMFEI": 31.9,
+    "NMFNOI": 33.0,
+    "NMFPRI": 55.1
+  },
+  "2020-05-01": {
+    "NAPM": 43.1,
+    "NAPMEI": 32.8,
+    "NAPMNOI": 31.9,
+    "NAPMPRI": 40.8,
+    "NMFCI": 45.4,
+    "NMFEI": 43.8,
+    "NMFNOI": 41.3,
+    "NMFPRI": 55.1
+  },
+  "2020-06-01": {
+    "NAPM": 52.2,
+    "NAPMEI": 41.1,
+    "NAPMNOI": 56.7,
+    "NAPMPRI": 51.3,
+    "NMFCI": 57.3,
+    "NMFEI": 43.0,
+    "NMFNOI": 62.6,
+    "NMFPRI": 61.1
+  },
+  "2020-07-01": {
+    "NAPM": 53.7,
+    "NAPMEI": 43.6,
+    "NAPMNOI": 60.9,
+    "NAPMPRI": 53.2,
+    "NMFCI": 56.7,
+    "NMFEI": 47.6,
+    "NMFNOI": 64.7,
+    "NMFPRI": 57.5
+  },
+  "2020-08-01": {
+    "NAPM": 55.6,
+    "NAPMEI": 46.3,
+    "NAPMNOI": 66.2,
+    "NAPMPRI": 59.5,
+    "NMFCI": 57.1,
+    "NMFEI": 50.0,
+    "NMFNOI": 58.3,
+    "NMFPRI": 64.2
+  },
+  "2020-09-01": {
+    "NAPM": 55.7,
+    "NAPMEI": 49.3,
+    "NAPMNOI": 60.9,
+    "NAPMPRI": 62.8,
+    "NMFCI": 57.1,
+    "NMFEI": 51.2,
+    "NMFNOI": 60.8,
+    "NMFPRI": 59.9
+  },
+  "2020-10-01": {
+    "NAPM": 58.8,
+    "NAPMEI": 52.1,
+    "NAPMNOI": 66.9,
+    "NAPMPRI": 65.5,
+    "NMFCI": 56.1,
+    "NMFEI": 51.2,
+    "NMFNOI": 56.9,
+    "NMFPRI": 62.8
+  },
+  "2020-11-01": {
+    "NAPM": 57.7,
+    "NAPMEI": 48.3,
+    "NAPMNOI": 65.7,
+    "NAPMPRI": 65.4,
+    "NMFCI": 56.1,
+    "NMFEI": 48.3,
+    "NMFNOI": 58.5,
+    "NMFPRI": 64.3
+  },
+  "2020-12-01": {
+    "NAPM": 60.5,
+    "NAPMEI": 51.7,
+    "NAPMNOI": 67.5,
+    "NAPMPRI": 77.6,
+    "NMFCI": 57.5,
+    "NMFEI": 55.1,
+    "NMFNOI": 59.0,
+    "NMFPRI": 65.7
+  },
+  "2021-01-01": {
+    "NAPM": 58.7,
+    "NAPMEI": 52.6,
+    "NAPMNOI": 61.1,
+    "NAPMPRI": 82.1,
+    "NMFCI": 58.7,
+    "NMFEI": 53.2,
+    "NMFNOI": 61.1,
+    "NMFPRI": 65.1
+  },
+  "2021-02-01": {
+    "NAPM": 60.8,
+    "NAPMEI": 54.4,
+    "NAPMNOI": 64.8,
+    "NAPMPRI": 86.0,
+    "NMFCI": 56.4,
+    "NMFEI": 54.8,
+    "NMFNOI": 54.0,
+    "NMFPRI": 71.8
+  },
+  "2021-03-01": {
+    "NAPM": 64.7,
+    "NAPMEI": 59.6,
+    "NAPMNOI": 68.0,
+    "NAPMPRI": 85.6,
+    "NMFCI": 62.3,
+    "NMFEI": 57.9,
+    "NMFNOI": 65.0,
+    "NMFPRI": 72.9
+  },
+  "2021-04-01": {
+    "NAPM": 60.7,
+    "NAPMEI": 55.1,
+    "NAPMNOI": 64.3,
+    "NAPMPRI": 89.6,
+    "NMFCI": 63.0,
+    "NMFEI": 54.8,
+    "NMFNOI": 64.4,
+    "NMFPRI": 75.0
+  },
+  "2021-05-01": {
+    "NAPM": 61.2,
+    "NAPMEI": 50.9,
+    "NAPMNOI": 67.0,
+    "NAPMPRI": 88.0,
+    "NMFCI": 63.9,
+    "NMFEI": 50.9,
+    "NMFNOI": 64.0,
+    "NMFPRI": 78.2
+  },
+  "2021-06-01": {
+    "NAPM": 60.6,
+    "NAPMEI": 49.9,
+    "NAPMNOI": 66.0,
+    "NAPMPRI": 92.1,
+    "NMFCI": 61.2,
+    "NMFEI": 54.4,
+    "NMFNOI": 63.3,
+    "NMFPRI": 78.0
+  },
+  "2021-07-01": {
+    "NAPM": 59.5,
+    "NAPMEI": 52.9,
+    "NAPMNOI": 64.9,
+    "NAPMPRI": 85.7,
+    "NMFCI": 64.0,
+    "NMFEI": 54.1,
+    "NMFNOI": 63.3,
+    "NMFPRI": 82.3
+  },
+  "2021-08-01": {
+    "NAPM": 59.9,
+    "NAPMEI": 49.0,
+    "NAPMNOI": 66.7,
+    "NAPMPRI": 79.4,
+    "NMFCI": 61.7,
+    "NMFEI": 53.4,
+    "NMFNOI": 62.7,
+    "NMFPRI": 76.7
+  },
+  "2021-09-01": {
+    "NAPM": 61.1,
+    "NAPMEI": 50.2,
+    "NAPMNOI": 66.7,
+    "NAPMPRI": 81.2,
+    "NMFCI": 62.1,
+    "NMFEI": 52.9,
+    "NMFNOI": 63.0,
+    "NMFPRI": 80.6
+  },
+  "2021-10-01": {
+    "NAPM": 60.8,
+    "NAPMEI": 52.0,
+    "NAPMNOI": 59.8,
+    "NAPMPRI": 85.7,
+    "NMFCI": 66.6,
+    "NMFEI": 56.1,
+    "NMFNOI": 69.2,
+    "NMFPRI": 83.2
+  },
+  "2021-11-01": {
+    "NAPM": 61.1,
+    "NAPMEI": 53.3,
+    "NAPMNOI": 61.5,
+    "NAPMPRI": 82.4,
+    "NMFCI": 67.6,
+    "NMFEI": 54.4,
+    "NMFNOI": 68.3,
+    "NMFPRI": 83.0
+  },
+  "2021-12-01": {
+    "NAPM": 58.8,
+    "NAPMEI": 53.9,
+    "NAPMNOI": 61.0,
+    "NAPMPRI": 68.2,
+    "NMFCI": 61.7,
+    "NMFEI": 52.2,
+    "NMFNOI": 61.9,
+    "NMFPRI": 84.5
+  },
+  "2022-01-01": {
+    "NAPM": 57.6,
+    "NAPMEI": 54.5,
+    "NAPMNOI": 57.9,
+    "NAPMPRI": 76.1,
+    "NMFCI": 60.4,
+    "NMFEI": 49.0,
+    "NMFNOI": 62.2,
+    "NMFPRI": 82.9
+  },
+  "2022-02-01": {
+    "NAPM": 58.6,
+    "NAPMEI": 52.9,
+    "NAPMNOI": 61.7,
+    "NAPMPRI": 75.6,
+    "NMFCI": 57.2,
+    "NMFEI": 53.5,
+    "NMFNOI": 57.3,
+    "NMFPRI": 83.2
+  },
+  "2022-03-01": {
+    "NAPM": 57.1,
+    "NAPMEI": 56.3,
+    "NAPMNOI": 53.8,
+    "NAPMPRI": 87.1,
+    "NMFCI": 58.4,
+    "NMFEI": 49.7,
+    "NMFNOI": 59.2,
+    "NMFPRI": 82.9
+  },
+  "2022-04-01": {
+    "NAPM": 55.4,
+    "NAPMEI": 50.9,
+    "NAPMNOI": 53.5,
+    "NAPMPRI": 84.6,
+    "NMFCI": 57.5,
+    "NMFEI": 50.3,
+    "NMFNOI": 55.8,
+    "NMFPRI": 83.2
+  },
+  "2022-05-01": {
+    "NAPM": 56.1,
+    "NAPMEI": 49.6,
+    "NAPMNOI": 55.1,
+    "NAPMPRI": 82.2,
+    "NMFCI": 56.4,
+    "NMFEI": 48.7,
+    "NMFNOI": 58.1,
+    "NMFPRI": 80.9
+  },
+  "2022-06-01": {
+    "NAPM": 53.0,
+    "NAPMEI": 47.3,
+    "NAPMNOI": 49.2,
+    "NAPMPRI": 78.5,
+    "NMFCI": 56.0,
+    "NMFEI": 49.5,
+    "NMFNOI": 56.2,
+    "NMFPRI": 79.1
+  },
+  "2022-07-01": {
+    "NAPM": 52.8,
+    "NAPMEI": 49.9,
+    "NAPMNOI": 48.0,
+    "NAPMPRI": 60.0,
+    "NMFCI": 56.4,
+    "NMFEI": 50.2,
+    "NMFNOI": 59.1,
+    "NMFPRI": 73.2
+  },
+  "2022-08-01": {
+    "NAPM": 52.8,
+    "NAPMEI": 54.2,
+    "NAPMNOI": 51.3,
+    "NAPMPRI": 52.5,
+    "NMFCI": 56.1,
+    "NMFEI": 52.3,
+    "NMFNOI": 60.4,
+    "NMFPRI": 72.3
+  },
+  "2022-09-01": {
+    "NAPM": 50.9,
+    "NAPMEI": 48.7,
+    "NAPMNOI": 47.1,
+    "NAPMPRI": 51.7,
+    "NMFCI": 55.9,
+    "NMFEI": 49.2,
+    "NMFNOI": 59.2,
+    "NMFPRI": 69.8
+  },
+  "2022-10-01": {
+    "NAPM": 50.2,
+    "NAPMEI": 50.0,
+    "NAPMNOI": 49.2,
+    "NAPMPRI": 46.6,
+    "NMFCI": 54.5,
+    "NMFEI": 50.6,
+    "NMFNOI": 56.8,
+    "NMFPRI": 70.9
+  },
+  "2022-11-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 48.4,
+    "NAPMNOI": 47.2,
+    "NAPMPRI": 43.0,
+    "NMFCI": 55.5,
+    "NMFEI": 49.4,
+    "NMFNOI": 55.8,
+    "NMFPRI": 70.1
+  },
+  "2022-12-01": {
+    "NAPM": 48.4,
+    "NAPMEI": 50.8,
+    "NAPMNOI": 45.1,
+    "NAPMPRI": 39.4,
+    "NMFCI": 49.2,
+    "NMFEI": 50.0,
+    "NMFNOI": 45.2,
+    "NMFPRI": 68.1
+  },
+  "2023-01-01": {
+    "NAPM": 47.4,
+    "NAPMEI": 50.6,
+    "NAPMNOI": 42.5,
+    "NAPMPRI": 44.5,
+    "NMFCI": 55.2,
+    "NMFEI": 54.0,
+    "NMFNOI": 60.4,
+    "NMFPRI": 67.8
+  },
+  "2023-02-01": {
+    "NAPM": 47.7,
+    "NAPMEI": 49.1,
+    "NAPMNOI": 47.0,
+    "NAPMPRI": 51.3,
+    "NMFCI": 55.1,
+    "NMFEI": 51.3,
+    "NMFNOI": 62.6,
+    "NMFPRI": 65.6
+  },
+  "2023-03-01": {
+    "NAPM": 46.3,
+    "NAPMEI": 46.9,
+    "NAPMNOI": 44.3,
+    "NAPMPRI": 49.2,
+    "NMFCI": 51.2,
+    "NMFEI": 50.8,
+    "NMFNOI": 52.2,
+    "NMFPRI": 59.5
+  },
+  "2023-04-01": {
+    "NAPM": 47.1,
+    "NAPMEI": 50.2,
+    "NAPMNOI": 45.7,
+    "NAPMPRI": 53.2,
+    "NMFCI": 51.9,
+    "NMFEI": 49.2,
+    "NMFNOI": 56.1,
+    "NMFPRI": 59.6
+  },
+  "2023-05-01": {
+    "NAPM": 46.9,
+    "NAPMEI": 51.4,
+    "NAPMNOI": 42.6,
+    "NAPMPRI": 44.2,
+    "NMFCI": 50.3,
+    "NMFEI": 53.1,
+    "NMFNOI": 52.9,
+    "NMFPRI": 56.2
+  },
+  "2023-06-01": {
+    "NAPM": 46.0,
+    "NAPMEI": 48.1,
+    "NAPMNOI": 45.6,
+    "NAPMPRI": 41.8,
+    "NMFCI": 53.9,
+    "NMFEI": 50.7,
+    "NMFNOI": 55.5,
+    "NMFPRI": 54.1
+  },
+  "2023-07-01": {
+    "NAPM": 46.4,
+    "NAPMEI": 44.4,
+    "NAPMNOI": 47.3,
+    "NAPMPRI": 42.6,
+    "NMFCI": 52.7,
+    "NMFEI": 54.7,
+    "NMFNOI": 55.0,
+    "NMFPRI": 56.8
+  },
+  "2023-08-01": {
+    "NAPM": 47.6,
+    "NAPMEI": 48.5,
+    "NAPMNOI": 46.8,
+    "NAPMPRI": 48.4,
+    "NMFCI": 54.5,
+    "NMFEI": 53.4,
+    "NMFNOI": 57.5,
+    "NMFPRI": 58.9
+  },
+  "2023-09-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 51.2,
+    "NAPMNOI": 49.2,
+    "NAPMPRI": 43.8,
+    "NMFCI": 53.6,
+    "NMFEI": 50.2,
+    "NMFNOI": 51.8,
+    "NMFPRI": 58.9
+  },
+  "2023-10-01": {
+    "NAPM": 46.7,
+    "NAPMEI": 46.8,
+    "NAPMNOI": 45.5,
+    "NAPMPRI": 45.1,
+    "NMFCI": 51.8,
+    "NMFEI": 50.7,
+    "NMFNOI": 55.5,
+    "NMFPRI": 58.6
+  },
+  "2023-11-01": {
+    "NAPM": 46.6,
+    "NAPMEI": 45.8,
+    "NAPMNOI": 48.3,
+    "NAPMPRI": 49.9,
+    "NMFCI": 52.7,
+    "NMFEI": 50.7,
+    "NMFNOI": 55.5,
+    "NMFPRI": 58.3
+  },
+  "2023-12-01": {
+    "NAPM": 47.1,
+    "NAPMEI": 48.1,
+    "NAPMNOI": 47.1,
+    "NAPMPRI": 45.2,
+    "NMFCI": 50.6,
+    "NMFEI": 43.3,
+    "NMFNOI": 52.8,
+    "NMFPRI": 57.4
+  },
+  "2024-01-01": {
+    "NAPM": 49.1,
+    "NAPMEI": 47.1,
+    "NAPMNOI": 52.5,
+    "NAPMPRI": 52.9,
+    "NMFCI": 53.4,
+    "NMFEI": 50.5,
+    "NMFNOI": 55.0,
+    "NMFPRI": 64.0
+  },
+  "2024-02-01": {
+    "NAPM": 47.6,
+    "NAPMEI": 45.9,
+    "NAPMNOI": 49.2,
+    "NAPMPRI": 52.5,
+    "NMFCI": 52.6,
+    "NMFEI": 48.0,
+    "NMFNOI": 56.1,
+    "NMFPRI": 58.6
+  },
+  "2024-03-01": {
+    "NAPM": 49.8,
+    "NAPMEI": 47.4,
+    "NAPMNOI": 51.4,
+    "NAPMPRI": 55.8,
+    "NMFCI": 51.4,
+    "NMFEI": 48.5,
+    "NMFNOI": 54.4,
+    "NMFPRI": 53.4
+  },
+  "2024-04-01": {
+    "NAPM": 48.8,
+    "NAPMEI": 48.6,
+    "NAPMNOI": 49.1,
+    "NAPMPRI": 60.9,
+    "NMFCI": 49.4,
+    "NMFEI": 45.9,
+    "NMFNOI": 52.2,
+    "NMFPRI": 59.2
+  },
+  "2024-05-01": {
+    "NAPM": 48.5,
+    "NAPMEI": 51.1,
+    "NAPMNOI": 45.4,
+    "NAPMPRI": 57.0,
+    "NMFCI": 53.8,
+    "NMFEI": 47.1,
+    "NMFNOI": 54.1,
+    "NMFPRI": 58.1
+  },
+  "2024-06-01": {
+    "NAPM": 48.3,
+    "NAPMEI": 49.3,
+    "NAPMNOI": 49.3,
+    "NAPMPRI": 52.1,
+    "NMFCI": 48.8,
+    "NMFEI": 46.1,
+    "NMFNOI": 47.3,
+    "NMFPRI": 56.3
+  },
+  "2024-07-01": {
+    "NAPM": 47.0,
+    "NAPMEI": 43.4,
+    "NAPMNOI": 47.4,
+    "NAPMPRI": 52.9,
+    "NMFCI": 51.4,
+    "NMFEI": 51.1,
+    "NMFNOI": 52.4,
+    "NMFPRI": 57.0
+  },
+  "2024-08-01": {
+    "NAPM": 47.5,
+    "NAPMEI": 46.0,
+    "NAPMNOI": 44.6,
+    "NAPMPRI": 54.0,
+    "NMFCI": 51.5,
+    "NMFEI": 50.2,
+    "NMFNOI": 53.0,
+    "NMFPRI": 57.3
+  },
+  "2024-09-01": {
+    "NAPM": 47.5,
+    "NAPMEI": 43.9,
+    "NAPMNOI": 46.1,
+    "NAPMPRI": 48.3,
+    "NMFCI": 54.9,
+    "NMFEI": 48.1,
+    "NMFNOI": 59.4,
+    "NMFPRI": 59.4
+  },
+  "2024-10-01": {
+    "NAPM": 46.9,
+    "NAPMEI": 44.8,
+    "NAPMNOI": 47.9,
+    "NAPMPRI": 54.8,
+    "NMFCI": 56.0,
+    "NMFEI": 53.0,
+    "NMFNOI": 57.4,
+    "NMFPRI": 58.1
+  },
+  "2024-11-01": {
+    "NAPM": 48.4,
+    "NAPMEI": 48.1,
+    "NAPMNOI": 50.3,
+    "NAPMPRI": 50.3,
+    "NMFCI": 52.1,
+    "NMFEI": 51.5,
+    "NMFNOI": 53.7,
+    "NMFPRI": 58.2
+  },
+  "2024-12-01": {
+    "NAPM": 49.2,
+    "NAPMEI": 45.4,
+    "NAPMNOI": 52.1,
+    "NAPMPRI": 52.5,
+    "NMFCI": 54.1,
+    "NMFEI": 51.4,
+    "NMFNOI": 54.2,
+    "NMFPRI": 64.4
+  },
+  "2025-01-01": {
+    "NAPM": 50.9,
+    "NAPMEI": 50.3,
+    "NAPMNOI": 55.1,
+    "NAPMPRI": 54.9,
+    "NMFCI": 52.8,
+    "NMFEI": 52.3,
+    "NMFNOI": 51.3,
+    "NMFPRI": 60.4
+  },
+  "2025-02-01": {
+    "NAPM": 50.3,
+    "NAPMEI": 47.6,
+    "NAPMNOI": 48.6,
+    "NAPMPRI": 62.4,
+    "NMFCI": 53.5,
+    "NMFEI": 53.9,
+    "NMFNOI": 52.2,
+    "NMFPRI": 62.6
+  },
+  "2025-03-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 44.7,
+    "NAPMNOI": 45.2,
+    "NAPMPRI": 69.4,
+    "NMFCI": 50.8,
+    "NMFEI": 46.2,
+    "NMFNOI": 50.4,
+    "NMFPRI": 60.9
+  },
+  "2025-04-01": {
+    "NAPM": 48.7,
+    "NAPMEI": 46.5,
+    "NAPMNOI": 47.2,
+    "NAPMPRI": 69.8,
+    "NMFCI": 51.6,
+    "NMFEI": 49.0,
+    "NMFNOI": 52.3,
+    "NMFPRI": 65.1
+  },
+  "2025-05-01": {
+    "NAPM": 48.5,
+    "NAPMEI": 46.8,
+    "NAPMNOI": 47.6,
+    "NAPMPRI": 69.4,
+    "NMFCI": 49.9,
+    "NMFEI": 50.7,
+    "NMFNOI": 46.4,
+    "NMFPRI": 68.7
+  },
+  "2025-06-01": {
+    "NAPM": 49.0,
+    "NAPMEI": 45.0,
+    "NAPMNOI": 46.4,
+    "NAPMPRI": 69.7,
+    "NMFCI": 50.8,
+    "NMFEI": 47.2,
+    "NMFNOI": 51.3,
+    "NMFPRI": 67.5
+  },
+  "2025-07-01": {
+    "NAPM": 48.0,
+    "NAPMEI": 43.4,
+    "NAPMNOI": 47.1,
+    "NAPMPRI": 64.8,
+    "NMFCI": 50.1,
+    "NMFEI": 46.4,
+    "NMFNOI": 50.3,
+    "NMFPRI": 69.9
+  },
+  "2025-08-01": {
+    "NAPM": 48.7,
+    "NAPMEI": 43.8,
+    "NAPMNOI": 51.4,
+    "NAPMPRI": 63.7,
+    "NMFCI": 52.0,
+    "NMFEI": 46.5,
+    "NMFNOI": 56.0,
+    "NMFPRI": 69.2
+  },
+  "2025-09-01": {
+    "NAPM": 49.1,
+    "NAPMEI": 45.3,
+    "NAPMNOI": 48.9,
+    "NAPMPRI": 61.9,
+    "NMFCI": 50.0,
+    "NMFEI": 47.2,
+    "NMFNOI": 50.4,
+    "NMFPRI": 69.4
+  },
+  "2025-10-01": {
+    "NAPM": 48.7,
+    "NAPMEI": 46.0,
+    "NAPMNOI": 49.4,
+    "NAPMPRI": 58.0,
+    "NMFCI": 52.4,
+    "NMFEI": 48.2,
+    "NMFNOI": 56.2,
+    "NMFPRI": 70.0
+  },
+  "2025-11-01": {
+    "NAPM": 48.2,
+    "NAPMEI": 44.0,
+    "NAPMNOI": 47.4,
+    "NAPMPRI": 58.5,
+    "NMFCI": 52.6,
+    "NMFEI": 48.9,
+    "NMFNOI": 52.9,
+    "NMFPRI": 65.4
+  },
+  "2025-12-01": {
+    "NAPM": 47.9,
+    "NAPMEI": 44.8,
+    "NAPMNOI": 47.4,
+    "NAPMPRI": 58.5,
+    "NMFCI": 53.8,
+    "NMFEI": 51.7,
+    "NMFNOI": 56.5,
+    "NMFPRI": 65.1
+  },
+  "2026-01-01": {
+    "NAPM": 52.6,
+    "NAPMEI": 48.1,
+    "NAPMNOI": 57.1,
+    "NAPMPRI": 59.0,
+    "NMFCI": 53.8,
+    "NMFEI": 50.3,
+    "NMFNOI": 53.1,
+    "NMFPRI": 66.6
+  }
+}
