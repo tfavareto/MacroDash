@@ -1,12 +1,18 @@
+# ─── Other projects in this workspace (NOT part of MacroDash repo) ───
+Calculadora de Inflação Pessoal/
+Teste Claude_Financial_Services/
+macro-terminal-main/
+MacroDash/.claude/
+MacroDash/node_modules/
+
 # ─── Sensitive files — NEVER commit ───────────────────────────────
-# Local secrets (API keys, tokens)
 **/secrets.local.js
 **/secrets.local.*
 .env
 .env.local
 .env.*.local
 
-# ─── User data files (private spreadsheets) ──────────────────────
+# ─── Private spreadsheets ─────────────────────────────────────────
 *.xlsx
 *.xls
 *.xlsm
@@ -22,7 +28,7 @@ desktop.ini
 *.swo
 *~
 
-# ─── Node / build artifacts ───────────────────────────────────────
+# ─── Node ─────────────────────────────────────────────────────────
 node_modules/
 dist/
 build/
@@ -31,6 +37,4 @@ build/
 npm-debug.log*
 
 # ─── Claude Code working files ────────────────────────────────────
-.claude/launch.json
-.claude/settings.local.json
-.claude/cache/
+.claude/

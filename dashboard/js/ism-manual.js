@@ -58,6 +58,14 @@ async function loadISMFromServer() {
     if (r.ok) {
       _ismServerData = await r.json();
       localStorage.setItem('ism_data', JSON.stringify(_ismServerData));
+      // Re-inject + re-render if the dashboard is already mounted (we
+      // arrived here async after the first render painted empty state).
+      if (typeof state !== 'undefined' && state.usaData) {
+        try {
+          if (typeof injectISMSeries === 'function') injectISMSeries(state.usaData);
+          if (typeof renderActiveTab === 'function') renderActiveTab();
+        } catch (e) {}
+      }
     }
   } catch (e) { /* offline — fallback to localStorage */ }
 }
@@ -244,7 +252,7 @@ function renderISMManualPanel(parent) {
       tableWrap.appendChild(toggleBtn);
     }
   } else {
-    tableWrap.innerHTML = '<div style="color:var(--muted);padding:12px;font-size:.8rem">Carregando histórico oficial... (verifique se o servidor está conectado ao Postgres)</div>';
+    tableWrap.innerHTML = '<div style="color:var(--muted);padding:12px;font-size:.8rem">Carregando histórico oficial...</div>';
   }
 
   // New entry button

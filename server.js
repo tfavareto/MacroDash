@@ -166,6 +166,17 @@ app.get('/api/fred/*', (req, res) => {
 // to identify the anonymous user. The frontend generates a UUID on
 // first visit and stores it in localStorage.
 
+// Reads the static seed JSON. Used as fallback when DB is unavailable.
+function readSeedFile() {
+  try {
+    if (!fs.existsSync(ISM_SEED_FILE)) return {};
+    return JSON.parse(fs.readFileSync(ISM_SEED_FILE, 'utf8'));
+  } catch (e) {
+    console.error('Error reading ism_global_seed.json:', e.message);
+    return {};
+  }
+}
+
 function requireUser(req, res, next) {
   const userId = (req.get('X-User-Id') || req.query.user_id || '').toString().trim();
   if (!userId || userId.length < 8 || userId.length > 64) {
@@ -175,16 +186,34 @@ function requireUser(req, res, next) {
   if (userId === GLOBAL_USER || userId.startsWith('__')) {
     return res.status(403).json({ error: 'Reserved user_id' });
   }
-  if (!pool) {
-    return res.status(503).json({ error: 'Database not configured (DATABASE_URL missing)' });
-  }
   req.userId = userId;
   next();
 }
 
+// Middleware that requires DB for write operations
+function requireDb(req, res, next) {
+  if (!pool) {
+    return res.status(503).json({ error: 'Database not configured (DATABASE_URL missing). Cannot persist new data.' });
+  }
+  next();
+}
+
 // GET /api/ism — returns global history merged with this user's additions
-// (user-specific values override global for the same date).
+// Resilient: falls back to the seed JSON file when the DB is unavailable
+// so that visitors always see the global history even in dev/offline mode.
 app.get('/api/ism', requireUser, async (req, res) => {
+  // If no DB configured, serve the seed file directly (read-only global)
+  if (!pool) {
+    const seed = readSeedFile();
+    const out = {};
+    Object.entries(seed).forEach(([date, values]) => {
+      out[date] = { ...values, _source: 'global' };
+    });
+    res.set('X-Source', 'seed-file-fallback');
+    return res.json(out);
+  }
+
+  // DB path — global + per-user merge
   try {
     const { rows } = await pool.query(
       `SELECT date, values, user_id
@@ -193,7 +222,6 @@ app.get('/api/ism', requireUser, async (req, res) => {
         ORDER BY date ASC`,
       [GLOBAL_USER, req.userId]
     );
-    // Merge in two passes: global first, then user (so user wins on conflicts)
     const out = {};
     rows.forEach(r => {
       if (r.user_id === GLOBAL_USER) out[r.date] = { ...r.values, _source: 'global' };
@@ -205,15 +233,24 @@ app.get('/api/ism', requireUser, async (req, res) => {
         out[r.date] = { ...base, ...r.values, _source: 'user' };
       }
     });
+    res.set('X-Source', 'database');
     res.json(out);
   } catch (e) {
-    res.status(500).json({ error: 'DB error: ' + e.message });
+    // DB error — fall back to seed file so the dashboard still works
+    console.error('GET /api/ism DB error, falling back to seed:', e.message);
+    const seed = readSeedFile();
+    const out = {};
+    Object.entries(seed).forEach(([date, values]) => {
+      out[date] = { ...values, _source: 'global' };
+    });
+    res.set('X-Source', 'seed-file-fallback-after-error');
+    res.json(out);
   }
 });
 
 // POST /api/ism — upsert one month under THIS user (never affects global)
 // Body: { date: 'YYYY-MM-01', values: { NAPM: 49.0, ... } }
-app.post('/api/ism', requireUser, async (req, res) => {
+app.post('/api/ism', requireUser, requireDb, async (req, res) => {
   const { date, values } = req.body || {};
   if (!date || !/^\d{4}-\d{2}-01$/.test(date)) {
     return res.status(400).json({ error: 'Invalid date — expected YYYY-MM-01' });
@@ -245,7 +282,7 @@ app.post('/api/ism', requireUser, async (req, res) => {
 });
 
 // DELETE /api/ism/:date — remove one month for this user
-app.delete('/api/ism/:date', requireUser, async (req, res) => {
+app.delete('/api/ism/:date', requireUser, requireDb, async (req, res) => {
   const { date } = req.params;
   try {
     const r = await pool.query(
@@ -261,7 +298,7 @@ app.delete('/api/ism/:date', requireUser, async (req, res) => {
 
 // PUT /api/ism — bulk replace all months for this user
 // Body: { "2026-04-01": {...}, "2026-03-01": {...}, ... }
-app.put('/api/ism', requireUser, async (req, res) => {
+app.put('/api/ism', requireUser, requireDb, async (req, res) => {
   if (!req.body || typeof req.body !== 'object' || Array.isArray(req.body)) {
     return res.status(400).json({ error: 'Body must be an object keyed by date' });
   }
