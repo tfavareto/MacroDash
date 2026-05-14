@@ -360,11 +360,7 @@ function renderISMHelp(box) {
         </li>
       </ol>
 
-      <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--border);font-size:.78rem;color:var(--muted)">
-        <strong style="color:var(--gold)">💡 Dica:</strong> Os dados ficam salvos no <code>localStorage</code> do seu navegador, persistindo entre sessões. Para excluir um mês, clique no botão <strong>×</strong> na linha correspondente da tabela abaixo.
-      </div>
-
-      <div style="margin-top:8px;padding:10px 14px;background:rgba(255,122,0,0.05);border-radius:3px;font-size:.78rem;color:var(--text2)">
+      <div style="margin-top:18px;padding:10px 14px;background:rgba(255,122,0,0.05);border-radius:3px;font-size:.78rem;color:var(--text2)">
         <strong style="color:var(--gold)">📊 Threshold de leitura ISM:</strong>
         <ul style="margin-top:4px;padding-left:20px">
           <li><strong style="color:#1a9850">≥ 50</strong>: Setor em <strong>expansão</strong> (verde no heatmap)</li>

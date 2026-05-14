@@ -4,12 +4,12 @@
    ───────────────────────────────────────────────────────────────── */
 
 const TV_SYMBOLS = [
-  { symbol: 'BMFBOVESPA:IBOV',  title: 'Ibovespa (IBOV)',           interval: 'D' },
-  { symbol: 'BMFBOVESPA:SMLL',  title: 'Small Caps (SMLL)',         interval: 'D' },
-  { symbol: 'BMFBOVESPA:IBRX',  title: 'IBrX 100',                   interval: 'D' },
-  { symbol: 'BMFBOVESPA:IFIX',  title: 'Fundos Imobiliários (IFIX)', interval: 'D' },
-  { symbol: 'BMFBOVESPA:IDIV',  title: 'Dividendos (IDIV)',          interval: 'D' },
+  { symbol: 'BMFBOVESPA:IBOV',  title: 'Ibovespa (IBOV)',            interval: 'D' },
+  { symbol: 'BMFBOVESPA:SMLL',  title: 'Small Caps (SMLL)',          interval: 'D' },
   { symbol: 'BMFBOVESPA:IBHB',  title: 'High Beta (IBHB)',           interval: 'D' },
+  { symbol: 'BMFBOVESPA:IBLV',  title: 'Low Volatility (IBLV)',      interval: 'D' },
+  { symbol: 'BMFBOVESPA:IDIV',  title: 'Dividendos (IDIV)',          interval: 'D' },
+  { symbol: 'BMFBOVESPA:IFIX',  title: 'Fundos Imobiliários (IFIX)', interval: 'D' },
 ];
 
 /**
@@ -21,7 +21,6 @@ function renderTVWidget(container, symbolDef) {
   card.innerHTML = `
     <div class="tv-card-header">
       <div class="tv-card-title">${symbolDef.title}</div>
-      <div class="chart-card-meta">TRADINGVIEW</div>
     </div>
     <div class="tv-frame" id="tv-${symbolDef.symbol.replace(/[:.]/g, '-')}"></div>
   `;

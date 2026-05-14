@@ -151,10 +151,8 @@ function getCurrentData() {
 
 // ── Meta-bar ───────────────────────────────────────────────────────
 function updateMetaBar() {
-  const today = new Date();
-  const monthsPt = ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez'];
-  $('meta-published').textContent = `${monthsPt[today.getMonth()]} ${today.getFullYear()}`;
-  $('meta-period').textContent = RANGE_LABELS[state.range];
+  const el = $('meta-period');
+  if (el) el.textContent = RANGE_LABELS[state.range];
 }
 
 // ── Data loading ───────────────────────────────────────────────────
