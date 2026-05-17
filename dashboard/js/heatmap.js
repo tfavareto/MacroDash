@@ -96,10 +96,52 @@ function fmtDate(dateStr) {
 }
 
 /**
- * Render a full heatmap (array of group objects) into `container`.
- * data = { [key]: { latest, latestDate } }
+ * Map heatmap group label → tab id (used as a fallback when a series lookup
+ * doesn't resolve a tab — e.g. derived/computed keys that aren't in the
+ * series config directly).
  */
-function renderHeatmap(container, groups, data) {
+const HEATMAP_GROUP_TO_TAB = {
+  // USA
+  'Housing Market':    'housing',
+  'Economic Activity': 'activity',
+  'Labor Market':      'labor',
+  'Inflation':         'cpi',
+  'Monetary Policy':   'monetary',
+  // Brazil
+  'Atividade':           'atividade',
+  'Índices de Preços':   'inflacao',
+  'Mercado de Trabalho': 'trabalho',
+  'Crédito & Monetário': 'credito',
+  'Fiscal':              'fiscal',
+};
+
+/**
+ * Resolve which dashboard tab an indicator belongs to. Strips derived
+ * suffixes like _YOY/_MOM/_3M/_6M_A and looks up the base series in
+ * USA_SERIES or BACEN_SERIES. Falls back to the group label.
+ */
+function resolveTabFromIndicator(ind, groupLabel, country) {
+  const raw = String(ind.key);
+  // Strip computed-series suffixes (longest first)
+  const baseKey = raw
+    .replace(/_(3M_A|6M_A|MOM_DIFF|3M|4WK|DIFF|YOY|MOM)$/i, '');
+
+  const cfg = country === 'usa' ? (typeof USA_SERIES !== 'undefined' ? USA_SERIES : null)
+                                : (typeof BACEN_SERIES !== 'undefined' ? BACEN_SERIES : null);
+  if (cfg) {
+    if (cfg[baseKey] && cfg[baseKey].tab) return cfg[baseKey].tab;
+    const asNum = parseInt(baseKey, 10);
+    if (!isNaN(asNum) && cfg[asNum] && cfg[asNum].tab) return cfg[asNum].tab;
+  }
+  return HEATMAP_GROUP_TO_TAB[groupLabel] || null;
+}
+
+/**
+ * Render a full heatmap (array of group objects) into `container`.
+ * data    = { [key]: { latest, latestDate } }
+ * country = 'usa' | 'brazil'  (optional — enables click-to-navigate)
+ */
+function renderHeatmap(container, groups, data, country) {
   container.innerHTML = '';
 
   groups.forEach(group => {
@@ -122,7 +164,21 @@ function renderHeatmap(container, groups, data) {
 
       const cell = document.createElement('div');
       cell.className = `hm-cell ${colorClass}`;
-      cell.title = `${ind.label}: ${val !== null ? val.toFixed(2) : 'N/A'} ${ind.unit}`;
+
+      // Resolve target tab — make the cell clickable if we found one.
+      const targetTab = country ? resolveTabFromIndicator(ind, group.group, country) : null;
+      if (targetTab && typeof navigateTo === 'function') {
+        cell.classList.add('hm-clickable');
+        cell.setAttribute('role', 'button');
+        cell.setAttribute('tabindex', '0');
+        cell.title = `${ind.label}: ${val !== null ? val.toFixed(2) : 'N/A'} ${ind.unit} — Clique para abrir`;
+        cell.addEventListener('click', () => navigateTo(targetTab));
+        cell.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); navigateTo(targetTab); }
+        });
+      } else {
+        cell.title = `${ind.label}: ${val !== null ? val.toFixed(2) : 'N/A'} ${ind.unit}`;
+      }
 
       cell.innerHTML = `
         <div class="hm-label">${ind.label}</div>

@@ -274,7 +274,7 @@ function renderHeatmapTab(data, isUSA) {
   contentEl.appendChild(legend);
 
   const groups = isUSA ? USA_HEATMAP : BRAZIL_HEATMAP;
-  renderHeatmap(contentEl, groups, data);
+  renderHeatmap(contentEl, groups, data, state.country);
 }
 
 // ── B3 tab (TradingView widgets) ───────────────────────────────────
