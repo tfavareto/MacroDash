@@ -40,6 +40,11 @@
 
 <!-- ─── Header ─────────────────────────────────────────────────── -->
 <header>
+  <!-- Hamburger (mobile only) — opens sidebar drawer -->
+  <button class="btn-hamburger" id="btn-hamburger" aria-label="Abrir menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+
   <div class="brand">
     <div class="brand-tag">RESEARCH TERMINAL · MACRO</div>
     <div class="brand-logo">Macro<em>Dash</em></div>
@@ -84,6 +89,9 @@
 
 <!-- ─── Layout ─────────────────────────────────────────────────── -->
 <div class="layout">
+
+  <!-- Backdrop shown when sidebar drawer is open (mobile only) -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop"></div>
 
   <aside id="sidebar"></aside>
 

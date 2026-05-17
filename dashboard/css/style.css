@@ -994,14 +994,182 @@ main::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; 
 }
 .ism-form-row input:focus { border-color: var(--gold); }
 
+/* ── Hamburger button (mobile only) ───────────────────────────── */
+.btn-hamburger {
+  display: none;
+  width: 38px;
+  height: 38px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 0;
+  flex-shrink: 0;
+  transition: border-color .15s, background .15s;
+}
+.btn-hamburger:hover { border-color: var(--gold); background: var(--surface2); }
+.btn-hamburger span {
+  display: block;
+  width: 18px;
+  height: 2px;
+  background: var(--gold);
+  border-radius: 1px;
+  transition: transform .2s, opacity .2s;
+}
+.btn-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.btn-hamburger.open span:nth-child(2) { opacity: 0; }
+.btn-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* Backdrop for sidebar drawer */
+.sidebar-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  backdrop-filter: blur(2px);
+  z-index: 90;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.sidebar-backdrop.visible {
+  display: block;
+  opacity: 1;
+}
+
 /* ── Responsive ───────────────────────────────────────────────── */
+
+/* Tablet & smaller — hide meta-bar to save vertical space */
 @media (max-width: 1100px) {
   .meta-bar { display: none; }
   .layout { height: calc(100vh - var(--header-h)); }
 }
+
+/* Tablet — single-column charts, denser layout */
 @media (max-width: 900px) {
-  aside { display: none; }
   .charts-grid { grid-template-columns: 1fr; }
   header { padding: 0 16px; flex-wrap: wrap; }
   main { padding: 16px 16px 60px; }
+}
+
+/* ─── SMARTPHONE — 6.1" to 6.8" screens (≈360–430 CSS px) ──────── */
+@media (max-width: 768px) {
+  :root {
+    --header-h: auto;   /* header grows to fit wrapped controls */
+    --chart-h: 240px;   /* shorter charts on mobile */
+  }
+
+  html { font-size: 13px; }
+
+  /* Header — show hamburger, stack controls */
+  .btn-hamburger { display: inline-flex; }
+
+  header {
+    padding: 10px 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .brand { flex: 1; min-width: 0; }
+  .brand-tag  { font-size: .52rem; }
+  .brand-logo { font-size: 1.25rem; }
+
+  .header-controls {
+    width: 100%;
+    gap: 8px;
+    justify-content: flex-start;
+  }
+  .seg button { padding: 5px 9px; font-size: .68rem; }
+  .btn-refresh { padding: 5px 10px; font-size: .68rem; }
+  #last-updated { font-size: .62rem; width: 100%; }
+
+  /* Layout — sidebar becomes off-canvas drawer */
+  .layout {
+    height: auto;
+    min-height: calc(100vh - 110px);
+    display: block;          /* main becomes block-level, no flex row */
+    overflow: visible;
+  }
+  aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 78%;
+    max-width: 300px;
+    z-index: 95;
+    transform: translateX(-100%);
+    transition: transform .25s ease;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.5);
+    padding-top: 16px;
+  }
+  aside.open { transform: translateX(0); }
+
+  main {
+    padding: 14px 12px 60px;
+    overflow: visible;       /* scroll happens on the page itself */
+    height: auto;
+  }
+
+  /* Heatmap — denser grid, smaller cells */
+  .heatmap-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 3px;
+  }
+  .hm-cell { padding: 7px 8px 6px; }
+  .hm-label { font-size: .6rem; margin-bottom: 3px; }
+  .hm-value { font-size: .9rem; }
+  .hm-date  { font-size: .54rem; }
+
+  /* Section header — smaller title */
+  .section-header { gap: 10px; flex-wrap: wrap; }
+  .section-header h2 { font-size: 1.15rem; }
+  .section-header .subtitle { font-size: .66rem; width: 100%; }
+
+  /* KPI cards — narrower */
+  .kpi-row { grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 8px; }
+  .kpi-card { padding: 10px 12px; }
+  .kpi-value { font-size: 1.25rem; }
+
+  /* Chart cards */
+  .chart-card { padding: 12px 12px; }
+  .chart-card-title { font-size: .75rem; }
+  .chart-card-meta  { font-size: .56rem; }
+
+  /* TradingView frames — shorter */
+  .tv-frame { height: 360px; }
+  .tv-card-header { padding: 10px 12px; }
+
+  /* Tables — keep horizontal scroll, smaller font */
+  .data-table        { font-size: .72rem; }
+  .data-table th     { padding: 7px 9px; font-size: .58rem; }
+  .data-table td     { padding: 6px 9px; }
+  .history-table th, .history-table td { padding: 4px 7px; font-size: .68rem; }
+  .history-table td.history-name { min-width: 160px; max-width: 160px; }
+
+  /* ISM panel */
+  .ism-panel { padding: 12px 14px; }
+  .ism-panel-header { gap: 10px; }
+
+  /* Modal padding for narrow screens */
+  .chart-explanation-overlay { padding: 12px; }
+  .chart-explanation-modal { padding: 20px 18px 18px; }
+  .chart-explanation-modal h3 { font-size: 1.15rem; padding-right: 32px; }
+
+  /* Legend wraps tighter */
+  .legend-row { font-size: .58rem; gap: 4px; }
+}
+
+/* ─── Very small phones (≤ 380px) — extra compression ──────────── */
+@media (max-width: 380px) {
+  html { font-size: 12px; }
+  .heatmap-grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); }
+  .hm-value { font-size: .85rem; }
+  .seg button { padding: 4px 7px; font-size: .64rem; }
+  .brand-logo { font-size: 1.1rem; }
+  .tv-frame { height: 300px; }
+  :root { --chart-h: 210px; }
 }

@@ -36,6 +36,7 @@ const RANGE_LABELS = {
   updateMetaBar();
   buildSidebar();
   setCountry('usa');
+  setupMobileMenu();
 
   // Logo click → return to heatmap tab of currently selected country
   const brand = document.querySelector('.brand');
@@ -43,13 +44,47 @@ const RANGE_LABELS = {
     brand.setAttribute('title', 'Voltar ao Heatmap principal');
     brand.setAttribute('role', 'button');
     brand.setAttribute('tabindex', '0');
-    const goHome = () => navigateTo('heatmap');
+    const goHome = () => { navigateTo('heatmap'); closeMobileSidebar(); };
     brand.addEventListener('click', goHome);
     brand.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); goHome(); }
     });
   }
 })();
+
+// ── Mobile drawer (hamburger sidebar) ──────────────────────────────
+function setupMobileMenu() {
+  const btn      = $('btn-hamburger');
+  const backdrop = $('sidebar-backdrop');
+  if (!btn || !backdrop) return;
+
+  btn.addEventListener('click', () => {
+    const isOpen = sidebar.classList.toggle('open');
+    backdrop.classList.toggle('visible', isOpen);
+    btn.classList.toggle('open', isOpen);
+    btn.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  backdrop.addEventListener('click', closeMobileSidebar);
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && sidebar.classList.contains('open')) closeMobileSidebar();
+  });
+}
+
+function closeMobileSidebar() {
+  const btn      = $('btn-hamburger');
+  const backdrop = $('sidebar-backdrop');
+  sidebar.classList.remove('open');
+  if (backdrop) backdrop.classList.remove('visible');
+  if (btn) {
+    btn.classList.remove('open');
+    btn.setAttribute('aria-expanded', 'false');
+  }
+  document.body.style.overflow = '';
+}
 
 // ── Country toggle ─────────────────────────────────────────────────
 countryBtns.forEach(btn => btn.addEventListener('click', () => setCountry(btn.dataset.country)));
@@ -100,7 +135,7 @@ function buildSidebar() {
     item.className = 'nav-item' + (tab.id === state.activeTab ? ' active' : '');
     item.dataset.tab = tab.id;
     item.innerHTML = `${tabIcon(tab.id)}<span>${tab.label}</span>`;
-    item.addEventListener('click', () => navigateTo(tab.id));
+    item.addEventListener('click', () => { navigateTo(tab.id); closeMobileSidebar(); });
     sidebar.appendChild(item);
   });
 }
