@@ -1024,14 +1024,14 @@ main::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; 
 .btn-hamburger.open span:nth-child(2) { opacity: 0; }
 .btn-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-/* Backdrop for sidebar drawer */
+/* Backdrop for sidebar drawer — must sit above sticky header (z-index 100) */
 .sidebar-backdrop {
   display: none;
   position: fixed;
   inset: 0;
   background: rgba(0,0,0,0.55);
   backdrop-filter: blur(2px);
-  z-index: 90;
+  z-index: 105;
   opacity: 0;
   transition: opacity .2s;
 }
@@ -1101,7 +1101,7 @@ main::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; 
     height: 100dvh;            /* respects mobile browser chrome */
     width: 78%;
     max-width: 300px;
-    z-index: 95;
+    z-index: 110;              /* above sticky header (100) and backdrop (105) */
     transform: translateX(-100%);
     transition: transform .25s ease;
     box-shadow: 4px 0 20px rgba(0,0,0,0.5);
