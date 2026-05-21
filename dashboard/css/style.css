@@ -245,6 +245,22 @@ aside {
   padding: 12px 16px 14px;
   background: var(--surface);
 }
+.footer-social {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  font-size: .74rem;
+  font-weight: 500;
+  color: var(--text2);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color .12s;
+}
+.footer-social svg { flex-shrink: 0; color: var(--gold); transition: color .12s; }
+.footer-social:hover { color: var(--gold); }
+.footer-social:hover svg { color: var(--gold-l); }
+
 .sidebar-footer-links {
   display: flex;
   flex-direction: column;
