@@ -124,11 +124,16 @@ btnRefresh.addEventListener('click', () => {
 // ── Sidebar ────────────────────────────────────────────────────────
 function buildSidebar() {
   sidebar.innerHTML = '';
+
+  // Scrollable nav area (so the footer can stay pinned at the bottom)
+  const scroll = document.createElement('div');
+  scroll.className = 'nav-scroll';
+
   const tabs = state.country === 'usa' ? USA_TABS : BRAZIL_TABS;
   const label = document.createElement('div');
   label.className = 'nav-section-label';
   label.textContent = state.country === 'usa' ? 'USA · Macro' : 'Brasil · Macro';
-  sidebar.appendChild(label);
+  scroll.appendChild(label);
 
   tabs.forEach(tab => {
     const item = document.createElement('div');
@@ -136,8 +141,41 @@ function buildSidebar() {
     item.dataset.tab = tab.id;
     item.innerHTML = `${tabIcon(tab.id)}<span>${tab.label}</span>`;
     item.addEventListener('click', () => { navigateTo(tab.id); closeMobileSidebar(); });
-    sidebar.appendChild(item);
+    scroll.appendChild(item);
   });
+
+  sidebar.appendChild(scroll);
+  sidebar.appendChild(buildSidebarFooter());
+}
+
+// ── Sidebar footer (legal links + copyright) ───────────────────────
+function buildSidebarFooter() {
+  const footer = document.createElement('div');
+  footer.className = 'sidebar-footer';
+
+  const links = document.createElement('div');
+  links.className = 'sidebar-footer-links';
+
+  const termsBtn = document.createElement('button');
+  termsBtn.className = 'footer-link';
+  termsBtn.textContent = 'Termos de Uso';
+  termsBtn.addEventListener('click', () => { showLegalModal('terms'); closeMobileSidebar(); });
+
+  const privacyBtn = document.createElement('button');
+  privacyBtn.className = 'footer-link';
+  privacyBtn.textContent = 'Política de Privacidade';
+  privacyBtn.addEventListener('click', () => { showLegalModal('privacy'); closeMobileSidebar(); });
+
+  links.appendChild(termsBtn);
+  links.appendChild(privacyBtn);
+
+  const copy = document.createElement('div');
+  copy.className = 'sidebar-footer-copy';
+  copy.innerHTML = '&copy; Macro Dashboards — Um produto Macro Panorama';
+
+  footer.appendChild(links);
+  footer.appendChild(copy);
+  return footer;
 }
 
 function tabIcon(id) {
