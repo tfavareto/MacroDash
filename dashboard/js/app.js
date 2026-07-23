@@ -445,11 +445,12 @@ function renderHistoryTable(parent, seriesDefs, data) {
   const tbody = document.createElement('tbody');
   Object.entries(seriesDefs).forEach(([key, cfg]) => {
     if (cfg.derived) return;
+    const momIsDiff = cfg.compute === 'mom_diff';
     [
       { suf: '',     label: cfg.name,                      raw: cfg.unit !== '%' && cfg.unit !== 'pp' && cfg.unit !== 'pts' ? false : true },
-      { suf: '_MOM', label: cfg.name + ' MoM (%)' },
-      { suf: '_YOY', label: cfg.name + ' YoY (%)' },
-    ].forEach(({ suf, label }) => {
+      { suf: '_MOM', label: cfg.name + (momIsDiff ? ' MoM' : ' MoM (%)'), unit: momIsDiff ? cfg.unit : '%' },
+      { suf: '_YOY', label: cfg.name + ' YoY (%)', unit: '%' },
+    ].forEach(({ suf, label, unit }) => {
       const ds = data[key + suf];
       if (!ds || !ds.display || !ds.display.length) return;
 
@@ -463,7 +464,7 @@ function renderHistoryTable(parent, seriesDefs, data) {
         if (v === undefined || v === null || isNaN(v)) {
           tr.innerHTML += `<td class="num td-neu">—</td>`;
         } else {
-          const fmt = formatTableValue(v, suf ? '%' : cfg.unit);
+          const fmt = formatTableValue(v, suf ? unit : cfg.unit);
           const cls = suf ? (v > 0 ? 'td-pos' : v < 0 ? 'td-neg' : 'td-neu') : '';
           tr.innerHTML += `<td class="num ${cls}">${fmt}</td>`;
         }
